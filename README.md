@@ -11,14 +11,14 @@ Key features:
 5. Track historical performance per syllabus area and identify strengths and weaknesses.
 
 Supported CCNA Domains (200-301):
-*     Network Fundamentals
-*     Network Access
-*     IP Connectivity
-*     IP Services
-*     Security Fundamentals
-*     Automation and Programmability
+* Network Fundamentals
+* Network Access
+* IP Connectivity
+* IP Services
+* Security Fundamentals
+* Automation and Programmability
 
-How It Works
+How It Works:
 1. Launch the application from the command line
 2. Choose a study mode (Topic-based quiz or Full practice exam)
 3. Answer multiple-choice questions (A–D)

@@ -27,5 +27,10 @@ How It Works:
 5. View performance summary
 6. Track improvement over time by CCNA domain
 
+Future Features:  
+* Flashcard-style review mode  
+* Timed exam simulations  
+* Difficulty-based question weighting  
+* Export results to CSV  
 
 

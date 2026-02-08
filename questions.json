@@ -1,0 +1,308 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "domain": "network fundamentals",
+      "question_text": "which layer of the osi model handles physical cabling and bit-level transmission?",
+      "options": {"a": "data link", "b": "network", "c": "physical", "d": "transport"},
+      "correct_answer": "c",
+      "explanation": "the physical layer defines the electrical and physical specifications for devices."
+    },
+    {
+      "id": 2,
+      "domain": "network access",
+      "question_text": "which protocol is used to provide redundant default gateways on a lan?",
+      "options": {"a": "hsrp", "b": "vtp", "c": "stp", "d": "lacp"},
+      "correct_answer": "a",
+      "explanation": "hot standby router protocol (hsrp) provides high availability for default gateways."
+    },
+    {
+      "id": 3,
+      "domain": "ip connectivity",
+      "question_text": "what is the default administrative distance of a static route?",
+      "options": {"a": "0", "b": "1", "c": "5", "d": "20"},
+      "correct_answer": "b",
+      "explanation": "static routes have a default administrative distance of 1."
+    },
+    {
+      "id": 4,
+      "domain": "ip services",
+      "question_text": "which protocol provides time synchronization across network devices?",
+      "options": {"a": "dns", "b": "snmp", "c": "ntp", "d": "dhcp"},
+      "correct_answer": "c",
+      "explanation": "network time protocol (ntp) ensures all devices have the same system time."
+    },
+    {
+      "id": 5,
+      "domain": "security fundamentals",
+      "question_text": "which type of acl uses the numbers 1-99 and 1300-1999?",
+      "options": {"a": "standard", "b": "extended", "c": "named", "d": "dynamic"},
+      "correct_answer": "a",
+      "explanation": "standard acls filter based only on source ip and use these specific number ranges."
+    },
+    {
+      "id": 6,
+      "domain": "automation and programmability",
+      "question_text": "which restful api method is used to update an existing resource?",
+      "options": {"a": "get", "b": "post", "c": "put", "d": "delete"},
+      "correct_answer": "c",
+      "explanation": "the put method is used to update or replace an existing resource."
+    },
+	{
+      "id": 7,
+      "domain": "network fundamentals",
+      "question_text": "which layer of the osi model is responsible for binary transmission and physical media connectors?",
+      "options": {"a": "data link", "b": "network", "c": "physical", "d": "transport"},
+      "correct_answer": "c",
+      "explanation": "the physical layer defines specifications for cables and bit-level transmission."
+    },
+    {
+      "id": 8,
+      "domain": "network fundamentals",
+      "question_text": "what is the purpose of the address resolution protocol (arp)?",
+      "options": {"a": "map ip to mac", "b": "map mac to ip", "c": "resolve names to ip", "d": "route packets"},
+      "correct_answer": "a",
+      "explanation": "arp is used to find the hardware (mac) address that corresponds to a known ip address."
+    },
+    {
+      "id": 9,
+      "domain": "network access",
+      "question_text": "which protocol is used to prevent layer 2 loops in a switched network?",
+      "options": {"a": "vtp", "b": "stp", "c": "lacp", "d": "hsrp"},
+      "correct_answer": "b",
+      "explanation": "spanning tree protocol (stp) blocks redundant paths to prevent loops."
+    },
+    {
+      "id": 10,
+      "domain": "network access",
+      "question_text": "what command is used to assign a switch port to vlan 10?",
+      "options": {"a": "vlan 10", "b": "switchport access vlan 10", "c": "switchport mode vlan 10", "d": "assign vlan 10"},
+      "correct_answer": "b",
+      "explanation": "the 'switchport access vlan' command assigns a static access port to a specific vlan."
+    },
+    {
+      "id": 11,
+      "domain": "ip connectivity",
+      "question_text": "what is the default administrative distance of ospf?",
+      "options": {"a": "90", "b": "110", "c": "115", "d": "120"},
+      "correct_answer": "b",
+      "explanation": "ospf uses an administrative distance of 110 by default."
+    },
+    {
+      "id": 12,
+      "domain": "ip connectivity",
+      "question_text": "which type of route has the lowest administrative distance?",
+      "options": {"a": "static", "b": "ospf", "c": "rip", "d": "directly connected"},
+      "correct_answer": "d",
+      "explanation": "directly connected routes have an administrative distance of 0."
+    },
+    {
+      "id": 13,
+      "domain": "ip services",
+      "question_text": "which service automatically assigns ip addresses to client devices?",
+      "options": {"a": "dns", "b": "snmp", "c": "dhcp", "d": "ntp"},
+      "correct_answer": "c",
+      "explanation": "dhcp (dynamic host configuration protocol) provides dynamic ip allocation."
+    },
+    {
+      "id": 14,
+      "domain": "ip services",
+      "question_text": "which protocol provides time synchronization across network devices?",
+      "options": {"a": "dns", "b": "snmp", "c": "ntp", "d": "ftp"},
+      "correct_answer": "c",
+      "explanation": "ntp ensures all network devices have a synchronized system clock."
+    },
+    {
+      "id": 15,
+      "domain": "security fundamentals",
+      "question_text": "which type of acl uses the numbers 100-199?",
+      "options": {"a": "standard", "b": "extended", "c": "named", "d": "dynamic"},
+      "correct_answer": "b",
+      "explanation": "extended acls (100-199) filter based on source/destination ip and port numbers."
+    },
+    {
+      "id": 16,
+      "domain": "security fundamentals",
+      "question_text": "which protocol provides secure remote access to a device terminal?",
+      "options": {"a": "telnet", "b": "ssh", "c": "http", "d": "snmp"},
+      "correct_answer": "b",
+      "explanation": "ssh encrypts the management session, whereas telnet sends data in clear text."
+    },
+    {
+      "id": 17,
+      "domain": "automation and programmability",
+      "question_text": "which data format uses key-value pairs and square brackets for arrays?",
+      "options": {"a": "xml", "b": "json", "c": "yaml", "d": "html"},
+      "correct_answer": "b",
+      "explanation": "json is a lightweight data serialization format commonly used in apis."
+    },
+    {"id": 20,
+      "domain": "automation and programmability",
+      "question_text": "which restful api method is used to create a new resource?",
+      "options": {"a": "get", "b": "put", "c": "post", "d": "delete"},
+      "correct_answer": "c",
+      "explanation": "the post method is used to send data to a server to create a resource."
+    },
+	
+    {
+      "id": 21,
+      "domain": "network fundamentals",
+      "question_text": "which cable type is most resistant to electromagnetic interference (emi)?",
+      "options": {"a": "utp", "b": "stp", "c": "fiber-optic", "d": "coaxial"},
+      "correct_answer": "c",
+      "explanation": "fiber-optic cable uses light instead of electricity, making it immune to emi."
+    },
+    {
+      "id": 22,
+      "domain": "network access",
+      "question_text": "what is the default aging time for a mac address table entry on a cisco switch?",
+      "options": {"a": "60 seconds", "b": "300 seconds", "c": "600 seconds", "d": "1200 seconds"},
+      "correct_answer": "b",
+      "explanation": "by default, cisco switches remove inactive mac addresses after 300 seconds."
+    },
+    {
+      "id": 23,
+      "domain": "ip connectivity",
+      "question_text": "which command shows the routing table on a cisco router?",
+      "options": {"a": "show ip route", "b": "show routes", "c": "display ip routing", "d": "show running-config"},
+      "correct_answer": "a",
+      "explanation": "the 'show ip route' command displays the current contents of the routing table."
+    },
+    {
+      "id": 24,
+      "domain": "ip services",
+      "question_text": "which ntp stratum level is considered the most reliable?",
+      "options": {"a": "stratum 0", "b": "stratum 1", "c": "stratum 15", "d": "stratum 16"},
+      "correct_answer": "a",
+      "explanation": "stratum 0 refers to high-precision timekeeping devices like atomic clocks."
+    },
+    {
+      "id": 25,
+      "domain": "security fundamentals",
+      "question_text": "which aaa component tracks what a user does on a network device?",
+      "options": {"a": "authentication", "b": "authorization", "c": "accounting", "d": "access"},
+      "correct_answer": "c",
+      "explanation": "accounting logs user activity and the duration of sessions."
+    },
+    {
+      "id": 26,
+      "domain": "automation and programmability",
+      "question_text": "which configuration management tool uses 'playbooks' and is agentless?",
+      "options": {"a": "chef", "b": "puppet", "c": "ansible", "d": "saltstack"},
+      "correct_answer": "c",
+      "explanation": "ansible is agentless and uses yaml-based playbooks for automation."
+    },
+    {
+      "id": 27,
+      "domain": "network fundamentals",
+      "question_text": "what is the binary representation of the decimal number 192?",
+      "options": {"a": "10101010", "b": "11000000", "c": "11110000", "d": "10000001"},
+      "correct_answer": "b",
+      "explanation": "192 in binary is 11000000 (128 + 64)."
+    },
+    {
+      "id": 28,
+      "domain": "network access",
+      "question_text": "which stp state is used to populate the mac address table but does not forward data?",
+      "options": {"a": "blocking", "b": "listening", "c": "learning", "d": "forwarding"},
+      "correct_answer": "c",
+      "explanation": "in the learning state, the switch learns mac addresses but does not forward data frames."
+    },
+    {
+      "id": 29,
+      "domain": "ip connectivity",
+      "question_text": "what is the floating static route's primary purpose?",
+      "options": {"a": "load balancing", "b": "backup for a primary route", "c": "default gateway", "d": "summarization"},
+      "correct_answer": "b",
+      "explanation": "floating static routes have a higher ad and only appear if the primary route fails."
+    },
+    {
+      "id": 30,
+      "domain": "security fundamentals",
+      "question_text": "what is the effect of the 'service password-encryption' command?",
+      "options": {"a": "encrypts all data traffic", "b": "encrypts passwords in the configuration file", "c": "requires passwords for all commands", "d": "enables md5 hashing for routing protocols"},
+      "correct_answer": "b",
+      "explanation": "it applies weak encryption to clear-text passwords displayed in the configuration."
+    },
+	{
+      "id": 31,
+      "domain": "network fundamentals",
+      "question_text": "which address is used by a switch to make forwarding decisions?",
+      "options": {"a": "source ip", "b": "destination ip", "c": "source mac", "d": "destination mac"},
+      "correct_answer": "d",
+      "explanation": "switches look at the destination mac address in the frame header to determine the egress port."
+    },
+    {
+      "id": 32,
+      "domain": "network access",
+      "question_text": "which command enables a switch port to transition immediately to the forwarding state?",
+      "options": {"a": "spanning-tree portfast", "b": "spanning-tree bpduguard", "c": "switchport mode access", "d": "no shutdown"},
+      "correct_answer": "a",
+      "explanation": "portfast allows access ports to bypass listening and learning states to reach forwarding immediately."
+    },
+    {
+      "id": 33,
+      "domain": "ip connectivity",
+      "question_text": "in a routing table, what does the 's' code represent?",
+      "options": {"a": "static", "b": "ospf", "c": "directly connected", "d": "rip"},
+      "correct_answer": "a",
+      "explanation": "the 's' code indicates a route that was manually configured as a static route."
+    },
+    {
+      "id": 34,
+      "domain": "ip services",
+      "question_text": "what is the purpose of snmp?",
+      "options": {"a": "file transfer", "b": "network management", "c": "web hosting", "d": "email delivery"},
+      "correct_answer": "b",
+      "explanation": "simple network management protocol (snmp) is used to monitor and manage network devices."
+    },
+    {
+      "id": 35,
+      "domain": "security fundamentals",
+      "question_text": "which vpn type provides an encrypted tunnel over the public internet?",
+      "options": {"a": "mpls", "b": "ipsec", "c": "frame relay", "d": "leased line"},
+      "correct_answer": "b",
+      "explanation": "ipsec (ip security) is the primary suite of protocols used to secure vpn communications."
+    },
+    {
+      "id": 36,
+      "domain": "automation and programmability",
+      "question_text": "which cloud model provides virtualized computing resources over the internet?",
+      "options": {"a": "saas", "b": "paas", "c": "iaas", "d": "daas"},
+      "correct_answer": "c",
+      "explanation": "infrastructure as a service (iaas) provides servers, storage, and networking as a service."
+    },
+    {
+      "id": 37,
+      "domain": "network fundamentals",
+      "question_text": "what is the default mask for a class b network?",
+      "options": {"a": "255.0.0.0", "b": "255.255.0.0", "c": "255.255.255.0", "d": "255.255.255.255"},
+      "correct_answer": "b",
+      "explanation": "class b networks use a 16-bit mask (255.255.0.0) by default."
+    },
+    {
+      "id": 38,
+      "domain": "ip connectivity",
+      "question_text": "which routing protocol uses a metric based on bandwidth and delay?",
+      "options": {"a": "rip", "b": "ospf", "c": "eigrp", "d": "bgp"},
+      "correct_answer": "c",
+      "explanation": "eigrp uses a composite metric primarily based on bandwidth and delay."
+    },
+    {
+      "id": 39,
+      "domain": "security fundamentals",
+      "question_text": "which attack involves an attacker capturing traffic to gain unauthorized access?",
+      "options": {"a": "dos", "b": "man-in-the-middle", "c": "brute force", "d": "phishing"},
+      "correct_answer": "b",
+      "explanation": "a man-in-the-middle (mitm) attack involves intercepting communication between two parties."
+    },
+    {
+      "id": 40,
+      "domain": "automation and programmability",
+      "question_text": "what is the primary advantage of using a controller-based network architecture?",
+      "options": {"a": "increased hardware cost", "b": "centralized management", "c": "more manual configuration", "d": "lower security"},
+      "correct_answer": "b",
+      "explanation": "controllers provide a centralized point for managing and configuring the entire network fabric."
+    }
+  ]
+}

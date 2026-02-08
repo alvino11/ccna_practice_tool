@@ -5,7 +5,7 @@ import json
 # Variables for the program
 
 # Integer Variables
-practice_exam_limit = 5 # The fixed number of questions for the Full Practice Exam Mode
+practice_exam_limit = 50 # The fixed number of questions for the Full Practice Exam Mode
 domain_quiz_limit = 20   # The fixed number of questions for a Domain-Based Practice Quiz.
 current_score = 0        # The raw count of correct answers during an active session.
 passing_threshold = 80   # The configurable percentage required to receive a "Pass" indication.
@@ -65,23 +65,23 @@ def run_quiz_engine(mode, domain_name=None):
 
     # load json question bank from local data storage
     try:
-        with open('questions.json', 'r') as f:
-            data = json.load(f)
+        with open('questions.json', 'r') as file:
+            data = json.load(file)
             all_questions = data['questions']
     except FileNotFoundError:
         print("error: questions.json not found.")
         return
 
-    # filter based on mode using standard for loops
+    # filter questions based on mode using standard for loops
     pool = []
     if mode == "domain":
-        # 1. generate fixed set of questions from a selected ccna topic
+        # generate fixed set of questions from a selected ccna domain
         for q in all_questions:
             if q['domain'].lower() == domain_name.lower():
                 pool.append(q)
         limit = domain_quiz_limit  # set to 20
     else:
-        # 2. generate mixed exam randomly selected across all ccna domains
+        # generate mixed exam randomly selected across all ccna domains
         for q in all_questions:
             pool.append(q)
         limit = practice_exam_limit  # set to 50

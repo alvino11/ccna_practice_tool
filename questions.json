@@ -303,6 +303,492 @@
       "options": {"a": "increased hardware cost", "b": "centralized management", "c": "more manual configuration", "d": "lower security"},
       "correct_answer": "b",
       "explanation": "controllers provide a centralized point for managing and configuring the entire network fabric."
-    }
+    },
+    {
+      "id": 41,
+      "domain": "network fundamentals",
+      "question_text": "which osi layer is responsible for encryption and compression?",
+      "options": {"a": "presentation", "b": "session", "c": "application", "d": "transport"},
+      "correct_answer": "a",
+      "explanation": "the presentation layer handles data formatting, encryption, and compression."
+    },
+    {
+      "id": 42,
+      "domain": "network fundamentals",
+      "question_text": "what is the default subnet mask for a class c network?",
+      "options": {"a": "255.0.0.0", "b": "255.255.0.0", "c": "255.255.255.0", "d": "255.255.255.252"},
+      "correct_answer": "c",
+      "explanation": "class c networks use a /24 mask by default."
+    },
+    {
+      "id": 43,
+      "domain": "network access",
+      "question_text": "which stp port state forwards frames and learns mac addresses?",
+      "options": {"a": "blocking", "b": "listening", "c": "learning", "d": "forwarding"},
+      "correct_answer": "d",
+      "explanation": "forwarding state forwards frames and learns mac addresses."
+    },
+    {
+      "id": 44,
+      "domain": "network access",
+      "question_text": "which command enables portfast on an interface?",
+      "options": {"a": "spanning-tree portfast", "b": "spanning-tree fast", "c": "portfast enable", "d": "stp portfast"},
+      "correct_answer": "a",
+      "explanation": "spanning-tree portfast enables fast transition to forwarding state."
+    },
+    {
+      "id": 45,
+      "domain": "network access",
+      "question_text": "which protocol is used for link aggregation?",
+      "options": {"a": "stp", "b": "vtp", "c": "lacp", "d": "ospf"},
+      "correct_answer": "c",
+      "explanation": "lacp bundles multiple interfaces into a single logical link."
+    },
+    {
+      "id": 46,
+      "domain": "ip connectivity",
+      "question_text": "which routing protocol uses hop count as its metric?",
+      "options": {"a": "ospf", "b": "rip", "c": "bgp", "d": "eigrp"},
+      "correct_answer": "b",
+      "explanation": "rip uses hop count with a maximum of 15 hops."
+    },
+    {
+      "id": 47,
+      "domain": "ip connectivity",
+      "question_text": "which ospf area is used as the backbone?",
+      "options": {"a": "area 0", "b": "area 1", "c": "area 10", "d": "area 100"},
+      "correct_answer": "a",
+      "explanation": "area 0 is the ospf backbone area."
+    },
+    {
+      "id": 48,
+      "domain": "ip connectivity",
+      "question_text": "which command displays the routing table on a cisco router?",
+      "options": {"a": "show ip route", "b": "show route", "c": "show routing", "d": "show table"},
+      "correct_answer": "a",
+      "explanation": "show ip route displays the routing table."
+    },
+    {
+      "id": 49,
+      "domain": "ip connectivity",
+      "question_text": "what is the default administrative distance of ospf?",
+      "options": {"a": "90", "b": "100", "c": "110", "d": "120"},
+      "correct_answer": "c",
+      "explanation": "ospf has a default administrative distance of 110."
+    },
+    {
+      "id": 50,
+      "domain": "ip connectivity",
+      "question_text": "which routing protocol is classified as path vector?",
+      "options": {"a": "ospf", "b": "rip", "c": "bgp", "d": "eigrp"},
+      "correct_answer": "c",
+      "explanation": "bgp is a path vector routing protocol."
+    },
+    {
+      "id": 51,
+      "domain": "ip services",
+      "question_text": "which protocol translates domain names to ip addresses?",
+      "options": {"a": "dhcp", "b": "dns", "c": "ntp", "d": "snmp"},
+      "correct_answer": "b",
+      "explanation": "dns resolves hostnames to ip addresses."
+    },
+    {
+      "id": 52,
+      "domain": "ip services",
+      "question_text": "which dhcp message is sent by a client to request an ip address?",
+      "options": {"a": "discover", "b": "offer", "c": "ack", "d": "release"},
+      "correct_answer": "a",
+      "explanation": "dhcp discover is the first message in the dhcp process."
+    },
+    {
+      "id": 53,
+      "domain": "ip services",
+      "question_text": "which protocol is used to manage network devices?",
+      "options": {"a": "snmp", "b": "ftp", "c": "http", "d": "smtp"},
+      "correct_answer": "a",
+      "explanation": "snmp is used for monitoring and managing network devices."
+    },
+    {
+      "id": 54,
+      "domain": "ip services",
+      "question_text": "which command configures a router as an ntp client?",
+      "options": {"a": "ntp master", "b": "ntp server", "c": "ntp peer", "d": "ntp enable"},
+      "correct_answer": "b",
+      "explanation": "ntp server configures the device to sync with an ntp server."
+    },
+    {
+      "id": 55,
+      "domain": "security fundamentals",
+      "question_text": "which acl type filters based on source and destination ip?",
+      "options": {"a": "standard", "b": "extended", "c": "named", "d": "dynamic"},
+      "correct_answer": "b",
+      "explanation": "extended acls filter on source, destination, and protocols."
+    },
+    {
+      "id": 56,
+      "domain": "security fundamentals",
+      "question_text": "which protocol provides secure remote management?",
+      "options": {"a": "telnet", "b": "ssh", "c": "http", "d": "snmpv1"},
+      "correct_answer": "b",
+      "explanation": "ssh encrypts remote management sessions."
+    },
+    {
+      "id": 57,
+      "domain": "security fundamentals",
+      "question_text": "what does aaa stand for?",
+      "options": {"a": "authentication authorization accounting", "b": "access authentication authority", "c": "advanced access authorization", "d": "authentication and accounting access"},
+      "correct_answer": "a",
+      "explanation": "aaa provides authentication, authorization, and accounting."
+    },
+    {
+      "id": 58,
+      "domain": "security fundamentals",
+      "question_text": "which feature limits the number of mac addresses on a switch port?",
+      "options": {"a": "port security", "b": "dhcp snooping", "c": "ip source guard", "d": "dynamic arp inspection"},
+      "correct_answer": "a",
+      "explanation": "port security restricts mac addresses per port."
+    },
+    {
+      "id": 59,
+      "domain": "automation and programmability",
+      "question_text": "which data format is commonly used in rest apis?",
+      "options": {"a": "xml", "b": "json", "c": "yaml", "d": "csv"},
+      "correct_answer": "b",
+      "explanation": "json is lightweight and commonly used in rest apis."
+    },
+    {
+      "id": 60,
+      "domain": "automation and programmability",
+      "question_text": "which tool is used to automate network device configuration using playbooks?",
+      "options": {"a": "terraform", "b": "ansible", "c": "git", "d": "docker"},
+      "correct_answer": "b",
+      "explanation": "ansible automates configuration using playbooks."
+    },
+
+    {
+      "id": 61,
+      "domain": "network fundamentals",
+      "question_text": "which protocol is used for neighbor discovery in ipv6?",
+      "options": {"a": "arp", "b": "ndp", "c": "icmpv4", "d": "bgp"},
+      "correct_answer": "b",
+      "explanation": "ndp replaces arp in ipv6 networks."
+    },
+    {
+      "id": 62,
+      "domain": "network access",
+      "question_text": "which vlan type is used to carry multiple vlans over a single link?",
+      "options": {"a": "native", "b": "trunk", "c": "voice", "d": "private"},
+      "correct_answer": "b",
+      "explanation": "trunk links carry multiple vlans using tagging."
+    },
+    {
+      "id": 63,
+      "domain": "ip connectivity",
+      "question_text": "which command enables ospf on an interface?",
+      "options": {"a": "router ospf", "b": "network", "c": "ip ospf enable", "d": "ospf start"},
+      "correct_answer": "c",
+      "explanation": "ip ospf enable activates ospf on the interface."
+    },
+    {
+      "id": 64,
+      "domain": "ip services",
+      "question_text": "which protocol is used to transfer files securely over ssh?",
+      "options": {"a": "ftp", "b": "tftp", "c": "sftp", "d": "http"},
+      "correct_answer": "c",
+      "explanation": "sftp transfers files securely over ssh."
+    },
+    {
+      "id": 65,
+      "domain": "security fundamentals",
+      "question_text": "which attack involves sending excessive traffic to exhaust resources?",
+      "options": {"a": "phishing", "b": "spoofing", "c": "dos", "d": "man in the middle"},
+      "correct_answer": "c",
+      "explanation": "dos attacks overwhelm systems with traffic."
+    },
+    {
+      "id": 66,
+      "domain": "automation and programmability",
+      "question_text": "which http method retrieves data without modification?",
+      "options": {"a": "get", "b": "post", "c": "put", "d": "delete"},
+      "correct_answer": "a",
+      "explanation": "get retrieves resources from a server."
+    },
+
+    {
+      "id": 67,
+      "domain": "network fundamentals",
+      "question_text": "what is the purpose of ttl in ip packets?",
+      "options": {"a": "encryption", "b": "prevent routing loops", "c": "increase speed", "d": "fragmentation"},
+      "correct_answer": "b",
+      "explanation": "ttl prevents packets from looping indefinitely."
+    },
+    {
+      "id": 68,
+      "domain": "network access",
+      "question_text": "which stp feature protects against rogue root bridges?",
+      "options": {"a": "portfast", "b": "bpdu guard", "c": "root guard", "d": "loop guard"},
+      "correct_answer": "c",
+      "explanation": "root guard prevents unauthorized root bridge election."
+    },
+    {
+      "id": 69,
+      "domain": "ip connectivity",
+      "question_text": "which command displays ospf neighbors?",
+      "options": {"a": "show ip ospf neighbor", "b": "show ospf", "c": "show ip route ospf", "d": "show neighbor ospf"},
+      "correct_answer": "a",
+      "explanation": "this command shows ospf neighbor relationships."
+    },
+    {
+      "id": 70,
+      "domain": "ip services",
+      "question_text": "which port does dns use by default?",
+      "options": {"a": "21", "b": "53", "c": "80", "d": "443"},
+      "correct_answer": "b",
+      "explanation": "dns uses port 53 tcp/udp."
+    },
+    {
+      "id": 71,
+      "domain": "security fundamentals",
+      "question_text": "which protocol provides secure web traffic?",
+      "options": {"a": "http", "b": "https", "c": "ftp", "d": "telnet"},
+      "correct_answer": "b",
+      "explanation": "https uses tls encryption."
+    },
+    {
+      "id": 72,
+      "domain": "automation and programmability",
+      "question_text": "which tool is used for version control?",
+      "options": {"a": "git", "b": "ansible", "c": "docker", "d": "kubernetes"},
+      "correct_answer": "a",
+      "explanation": "git tracks code and configuration changes."
+    },
+
+    {
+      "id": 73,
+      "domain": "network fundamentals",
+      "question_text": "which device operates primarily at layer 2?",
+      "options": {"a": "router", "b": "switch", "c": "firewall", "d": "server"},
+      "correct_answer": "b",
+      "explanation": "switches forward frames based on mac addresses."
+    },
+    {
+      "id": 74,
+      "domain": "network access",
+      "question_text": "which vlan is untagged on a trunk link by default?",
+      "options": {"a": "vlan 1", "b": "vlan 10", "c": "vlan 100", "d": "native vlan"},
+      "correct_answer": "d",
+      "explanation": "native vlan frames are sent untagged."
+    },
+    {
+      "id": 75,
+      "domain": "ip connectivity",
+      "question_text": "which bgp attribute is used to influence outbound traffic within an as?",
+      "options": {"a": "as-path", "b": "local preference", "c": "med", "d": "weight"},
+      "correct_answer": "b",
+      "explanation": "local preference controls outbound traffic selection."
+    },
+    {
+      "id": 76,
+      "domain": "ip services",
+      "question_text": "which protocol is used for remote device configuration file transfer?",
+      "options": {"a": "ftp", "b": "tftp", "c": "smtp", "d": "pop3"},
+      "correct_answer": "b",
+      "explanation": "tftp is commonly used for network device config transfer."
+    },
+    {
+      "id": 77,
+      "domain": "security fundamentals",
+      "question_text": "which feature inspects arp packets to prevent spoofing?",
+      "options": {"a": "dhcp snooping", "b": "dynamic arp inspection", "c": "port security", "d": "ip source guard"},
+      "correct_answer": "b",
+      "explanation": "dynamic arp inspection validates arp messages."
+    },
+    {
+      "id": 78,
+      "domain": "automation and programmability",
+      "question_text": "which protocol allows programmatic network management using http?",
+      "options": {"a": "snmp", "b": "netconf", "c": "restconf", "d": "ssh"},
+      "correct_answer": "c",
+      "explanation": "restconf uses http methods for device management."
+    },
+
+    {
+      "id": 79,
+      "domain": "network fundamentals",
+      "question_text": "what is the loopback address in ipv4?",
+      "options": {"a": "0.0.0.0", "b": "127.0.0.1", "c": "169.254.0.1", "d": "255.255.255.255"},
+      "correct_answer": "b",
+      "explanation": "127.0.0.1 is used for local host testing."
+    },
+    {
+      "id": 80,
+      "domain": "network access",
+      "question_text": "which command enables trunking on a switch port?",
+      "options": {"a": "switchport trunk enable", "b": "switchport mode trunk", "c": "trunk enable", "d": "switchport vlan trunk"},
+      "correct_answer": "b",
+      "explanation": "switchport mode trunk sets the interface as a trunk."
+    },
+    {
+      "id": 81,
+      "domain": "ip connectivity",
+      "question_text": "which routing protocol uses cost as its metric?",
+      "options": {"a": "ospf", "b": "rip", "c": "bgp", "d": "isis"},
+      "correct_answer": "a",
+      "explanation": "ospf uses cost based on bandwidth."
+    },
+    {
+      "id": 82,
+      "domain": "ip services",
+      "question_text": "which port is used by ssh?",
+      "options": {"a": "22", "b": "23", "c": "80", "d": "443"},
+      "correct_answer": "a",
+      "explanation": "ssh uses tcp port 22."
+    },
+    {
+      "id": 83,
+      "domain": "security fundamentals",
+      "question_text": "which protocol is insecure for remote management?",
+      "options": {"a": "ssh", "b": "https", "c": "telnet", "d": "snmpv3"},
+      "correct_answer": "c",
+      "explanation": "telnet sends credentials in clear text."
+    },
+    {
+      "id": 84,
+      "domain": "automation and programmability",
+      "question_text": "which data modeling language is used with netconf?",
+      "options": {"a": "json", "b": "xml", "c": "yaml", "d": "yang"},
+      "correct_answer": "d",
+      "explanation": "yang defines data models for netconf and restconf."
+    },
+
+    {
+      "id": 85,
+      "domain": "network fundamentals",
+      "question_text": "which address is used for ipv4 broadcast?",
+      "options": {"a": "255.255.255.255", "b": "127.0.0.1", "c": "0.0.0.0", "d": "224.0.0.1"},
+      "correct_answer": "a",
+      "explanation": "255.255.255.255 is the limited broadcast address."
+    },
+    {
+      "id": 86,
+      "domain": "network access",
+      "question_text": "which feature protects against bpdu attacks on access ports?",
+      "options": {"a": "bpdu guard", "b": "root guard", "c": "loop guard", "d": "portfast"},
+      "correct_answer": "a",
+      "explanation": "bpdu guard disables ports receiving bpdus unexpectedly."
+    },
+    {
+      "id": 87,
+      "domain": "ip connectivity",
+      "question_text": "which bgp attribute influences inbound traffic from external as?",
+      "options": {"a": "local preference", "b": "as-path", "c": "med", "d": "weight"},
+      "correct_answer": "c",
+      "explanation": "med suggests preferred entry points to external neighbors."
+    },
+    {
+      "id": 88,
+      "domain": "ip services",
+      "question_text": "which protocol sends email between servers?",
+      "options": {"a": "smtp", "b": "pop3", "c": "imap", "d": "ftp"},
+      "correct_answer": "a",
+      "explanation": "smtp is used for sending mail."
+    },
+    {
+      "id": 89,
+      "domain": "security fundamentals",
+      "question_text": "which method verifies user identity?",
+      "options": {"a": "authentication", "b": "authorization", "c": "accounting", "d": "encryption"},
+      "correct_answer": "a",
+      "explanation": "authentication verifies identity."
+    },
+    {
+      "id": 90,
+      "domain": "automation and programmability",
+      "question_text": "which tool is used for containerization?",
+      "options": {"a": "docker", "b": "git", "c": "ansible", "d": "terraform"},
+      "correct_answer": "a",
+      "explanation": "docker packages applications into containers."
+    },
+
+    {
+      "id": 91,
+      "domain": "network fundamentals",
+      "question_text": "which ipv6 address type is fe80::/10?",
+      "options": {"a": "global unicast", "b": "link-local", "c": "multicast", "d": "anycast"},
+      "correct_answer": "b",
+      "explanation": "fe80::/10 is used for link-local addresses."
+    },
+    {
+      "id": 92,
+      "domain": "network access",
+      "question_text": "which vlan is used for voice traffic?",
+      "options": {"a": "data vlan", "b": "management vlan", "c": "voice vlan", "d": "native vlan"},
+      "correct_answer": "c",
+      "explanation": "voice vlan prioritizes voip traffic."
+    },
+    {
+      "id": 93,
+      "domain": "ip connectivity",
+      "question_text": "which command shows bgp routes?",
+      "options": {"a": "show bgp", "b": "show ip bgp", "c": "show route bgp", "d": "show bgp table"},
+      "correct_answer": "b",
+      "explanation": "show ip bgp displays bgp routes."
+    },
+    {
+      "id": 94,
+      "domain": "ip services",
+      "question_text": "which protocol synchronizes clocks across networks?",
+      "options": {"a": "dns", "b": "ntp", "c": "snmp", "d": "dhcp"},
+      "correct_answer": "b",
+      "explanation": "ntp synchronizes system time."
+    },
+    {
+      "id": 95,
+      "domain": "security fundamentals",
+      "question_text": "which device filters traffic based on rules?",
+      "options": {"a": "switch", "b": "router", "c": "firewall", "d": "hub"},
+      "correct_answer": "c",
+      "explanation": "firewalls enforce security policies."
+    },
+    {
+      "id": 96,
+      "domain": "automation and programmability",
+      "question_text": "which language is commonly used for network scripting?",
+      "options": {"a": "python", "b": "cobol", "c": "fortran", "d": "pascal"},
+      "correct_answer": "a",
+      "explanation": "python is widely used for network automation."
+    },
+
+    {
+      "id": 97,
+      "domain": "network fundamentals",
+      "question_text": "which protocol is used for multicast group management?",
+      "options": {"a": "icmp", "b": "igmp", "c": "bgp", "d": "arp"},
+      "correct_answer": "b",
+      "explanation": "igmp manages multicast group memberships."
+    },
+    {
+      "id": 98,
+      "domain": "network access",
+      "question_text": "which command creates vlan 20?",
+      "options": {"a": "vlan create 20", "b": "vlan 20", "c": "switch vlan 20", "d": "add vlan 20"},
+      "correct_answer": "b",
+      "explanation": "vlan 20 creates vlan 20 in global configuration."
+    },
+    {
+      "id": 99,
+      "domain": "ip connectivity",
+      "question_text": "which protocol is used for dynamic routing in large enterprises?",
+      "options": {"a": "rip", "b": "ospf", "c": "static", "d": "arp"},
+      "correct_answer": "b",
+      "explanation": "ospf scales well for enterprise networks."
+    },
+    {
+      "id": 100,
+      "domain": "automation and programmability",
+      "question_text": "which api style uses stateless communication?",
+      "options": {"a": "soap", "b": "rest", "c": "snmp", "d": "telnet"},
+      "correct_answer": "b",
+      "explanation": "rest apis are stateless and use http methods."}
   ]
 }

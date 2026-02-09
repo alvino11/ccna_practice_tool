@@ -12,11 +12,11 @@ passing_threshold = 80   # The configurable percentage required to receive a "Pa
 
 # Boolean Variables
 is_running = True # A flag that keeps the main menu loop active until the user chooses to exit.
-is_full_exam = False # A toggle used to switch between full exam and single-domain question fetching.
+# is_full_exam = False # A toggle used to switch between full exam and single-domain question fetching.
 is_input_valid = True # A flag used to validate users input during answer choices.
 
 # String Variable
-user_answer = "c" # Captures the user's multiple-choice selection (A–D).
+# user_answer = "c" # Captures the user's multiple-choice selection (A–D).
 selected_domain = "network access" # Stores the specific CCNA domain currently being assessed.
 performance_rank = "moderate" # Stores the classification (Weak, Moderate, Strong) based on historical data.
 
@@ -63,7 +63,7 @@ def run_quiz_engine(mode, domain_name=None):
         domain_scores_counter[d] = 0
         domain_totals[d] = 0
 
-    # load json question bank from local data storage
+    # load JSON question bank from local data storage
     try:
         with open('questions.json', 'r') as file:
             data = json.load(file)
@@ -90,12 +90,12 @@ def run_quiz_engine(mode, domain_name=None):
     random.shuffle(pool)
     session_pool = pool[:limit]
 
-    for idx, question in enumerate(session_pool, start=1):
+    for num, question in enumerate(session_pool, start=1):
         domain_key = question['domain'].lower()
         domain_totals[domain_key] += 1
 
         # Numbered question
-        print(f"\nQuestion {idx} - Domain: {question['domain']}")
+        print(f"\nQuestion {num} - Domain: {question['domain']}")
         print(question['question_text'])
 
         # display multiple-choice answers (a–d)
@@ -103,7 +103,7 @@ def run_quiz_engine(mode, domain_name=None):
             print(f"{key}) {question['options'][key]}")
 
         # Input validation loop: only a-d allowed
-        while True:
+        while is_input_valid:
             ans = input("Your answer (a-d): ").strip().lower()
             if ans in ['a', 'b', 'c', 'd']:
                 break
@@ -126,9 +126,60 @@ def run_quiz_engine(mode, domain_name=None):
     display_summary(limit, domain_scores_counter, domain_totals)
 
 
+def display_summary(limit, scores_counter, totals):
+    # Calculate overall percentage of quiz
+    # current_score is accessed as a global variable
+    overall_percentage = (current_score / limit) * 100
+
+    print("=" * 50)
+    print("                QUIZ RESULTS                ")
+    print("=" * 50)
+
+    # Display raw score and percentage
+    print(f"Overall Score: {current_score}/{limit}")
+    print(f"Percentage:    {overall_percentage:.1f}%")
+
+    # Pass/Fail indication (using your 80% passing_threshold)
+    if overall_percentage >= passing_threshold:
+        print("Final Status:  PASS")
+    else:
+        print("Final Status:  FAIL")
+
+    print("-" * 50)
+    # Domain-level performance tracking
+    print("Performance by CCNA Domain:")
+
+    # Iterate through the dictionary to calculate domain-specific metrics
+    for domain_name in scores_counter:
+        count_asked = totals[domain_name]
+
+        # Only display domains that appeared in the current quiz session
+        if count_asked > 0:
+            correct_count = scores_counter[domain_name]
+            domain_pct = (correct_count / count_asked) * 100
+
+            # Identify strengths and weaknesses (Classification)
+            if domain_pct >= 80:
+                performance_rank = "Strong"
+            elif domain_pct >= 60:
+                performance_rank = "Moderate"
+            else:
+                performance_rank = "Weak"
+
+            # Formatting the output for a clean CLI look
+            # ensures the domain names align vertically
+            print(f"- {domain_name.ljust(30)}: {domain_pct:.1f}% ({performance_rank})")
+
+    print("=" * 50)
+    print("Press ENTER to return to the Main Menu...")
+    input()  # Pauses so the user can review results
+
 def main_menu():
     global is_running
     while is_running:
+        print("\n" + "=" * 50)
+        print("                CCNA PRACTICE TOOL                ")
+        print("=" * 50)
         choice=inquirer.select(
             message = "Use the up and down arrow keys to select and press ENTER to confirm\n",
             choices = ["Topic-based Exam Mode (20 questions)",
@@ -138,7 +189,7 @@ def main_menu():
                        ],
         ).execute()
         if choice == "Topic-based Exam Mode (20 questions)":
-            topic_exam()
+            topic_exam()    # starts 20-question domain exam
         elif choice == "Full Practice Exam Mode (50 questions)":
             run_quiz_engine("full")  # starts 50-question mixed exam
         elif choice == "View Performance History":

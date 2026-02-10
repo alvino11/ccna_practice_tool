@@ -174,6 +174,47 @@ def display_summary(limit, scores_counter, totals):
     print("Press ENTER to return to the Main Menu...")
     input()  # Pauses so the user can review results
 
+
+def save_results_to_database(overall_score, total_questions, domain_scores_dict):
+    pass
+
+
+#     Establish Connection
+#     OPEN a connection to the local file "ccna_history.db"
+#     CREATE a "cursor" object to execute commands
+
+#     # Make sure Table Exists
+#     IF the table "quiz_attempts" does not exist:
+#         CREATE TABLE "quiz_attempts" with these columns:
+#             - id: (Unique ID, auto-incrementing)
+#             - date_time: (current date)
+#             - total_score
+#             - total_question
+#             - percentage
+#             - network_fundamentals_pct
+#             - network_access_pct
+#             - ip_connectivity_pct
+#             - ip_services_pct
+#             - security_fundamentals_pct
+#             - automation_programmability_pct
+
+#     # Prepare the Data
+#     CALCULATE the overall percentage (score / total * 100)
+#     GET the current date
+
+#     FOR each domain in the official CCNA list:
+#         CALCULATE that specific domain's percentage from domain_scores_dict
+#         IF the domain wasn't in the quiz, set its value to NULL or 0
+
+#     # Execute the Insertion
+#     INSERT a new row into "quiz_attempts" using the calculated values
+
+#     # Finalize
+#     COMMIT the changes (save them to the disk)
+#     CLOSE the database connection
+#     PRINT "Results saved to performance history."
+
+
 def main_menu():
     global is_running
     while is_running:

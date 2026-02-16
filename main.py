@@ -49,6 +49,7 @@ def topic_exam():
 def run_quiz_engine(mode, domain_name=None):
     # global variable access for session scoring
     global current_score
+    global domain_scores_counter
     current_score = 0
 
     # initialize counters for domain-level performance tracking
@@ -178,7 +179,6 @@ def display_summary(limit, scores_counter, totals):
 def save_results_to_database(overall_score, total_questions, domain_scores_dict):
     pass
 
-
 #     Establish Connection
 #     OPEN a connection to the local file "ccna_history.db"
 #     CREATE a "cursor" object to execute commands
@@ -214,6 +214,11 @@ def save_results_to_database(overall_score, total_questions, domain_scores_dict)
 #     CLOSE the database connection
 #     PRINT "Results saved to performance history."
 
+def display_history():
+    pass
+# This function will aid us in viewing Performance History
+# Load ccna_history.db using Pandas Library
+# Display performance history using Pandas Library
 
 def main_menu():
     global is_running

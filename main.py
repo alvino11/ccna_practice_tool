@@ -39,7 +39,7 @@ domains =["Network Fundamentals",
 def topic_exam():
 # Domain or topic-based exams CLI Menu. Function generates a menu which can be navigated with arrow keys.
     choice = inquirer.select(
-        message="Select a domain for your 20-question quiz:\n",
+        message=f"Select a domain for your {domain_quiz_limit}-question quiz:\n",
         choices= domains).execute()    # List of menu items
     if choice == "Back": # This if statement returns us to the main menu
         return
@@ -48,9 +48,7 @@ def topic_exam():
 
 def run_quiz_engine(mode, domain_name=None):
     # global variable access for session scoring
-    global current_score
-    global domain_scores_counter
-    current_score = 0
+    global current_score, domain_scores_counter
 
     # initialize counters for domain-level performance tracking
     domain_list = []
@@ -58,8 +56,8 @@ def run_quiz_engine(mode, domain_name=None):
         if d != "Back":
             domain_list.append(d.lower())
 
-    domain_scores_counter = {}
-    domain_totals = {}
+    # domain_scores_counter = {}
+    # domain_totals = {}
     for d in domain_list:
         domain_scores_counter[d] = 0
         domain_totals[d] = 0
@@ -127,7 +125,7 @@ def run_quiz_engine(mode, domain_name=None):
     display_summary(limit, domain_scores_counter, domain_totals)
 
 
-def display_summary(limit, scores_counter, totals):
+def display_summary(limit, domain_scores_counter, domain_totals):
     # Calculate overall percentage of quiz
     # current_score is accessed as a global variable
     overall_percentage = (current_score / limit) * 100
@@ -151,12 +149,12 @@ def display_summary(limit, scores_counter, totals):
     print("Performance by CCNA Domain:")
 
     # Iterate through the dictionary to calculate domain-specific metrics
-    for domain_name in scores_counter:
-        count_asked = totals[domain_name]
+    for domain_name in domain_scores_counter:
+        count_asked = domain_totals[domain_name]
 
         # Only display domains that appeared in the current quiz session
         if count_asked > 0:
-            correct_count = scores_counter[domain_name]
+            correct_count = domain_scores_counter[domain_name]
             domain_pct = (correct_count / count_asked) * 100
 
             # Identify strengths and weaknesses (Classification)
@@ -178,11 +176,12 @@ def display_summary(limit, scores_counter, totals):
 
 def save_results_to_database(overall_score, total_questions, domain_scores_dict):
     pass
-
+    global current_score, domain_totals, domain_scores_counter
 #     Establish Connection
+    with sqlite3.connect("ccna_history.db") as conn:
 #     OPEN a connection to the local file "ccna_history.db"
 #     CREATE a "cursor" object to execute commands
-
+        cur = conn.cursor()
 #     # Make sure Table Exists
 #     IF the table "quiz_attempts" does not exist:
 #         CREATE TABLE "quiz_attempts" with these columns:
@@ -220,6 +219,50 @@ def display_history():
 # Load ccna_history.db using Pandas Library
 # Display performance history using Pandas Library
 
+def display_settings():
+    global practice_exam_limit,domain_quiz_limit
+    # Generate and select option from the Settings menu
+    while True:
+        choice = inquirer.select(
+            message="                   SETTINGS\n                 ===============                    ",
+            choices=["Change Full Practice Exam Questions Limit",
+                     "Change Domain Exams Questions Limit",
+                     "Clear Performance History",
+                     "Back to Main Menu",
+                     ],
+        ).execute()
+        if choice == "Change Full Practice Exam Questions Limit":
+            while True:
+                # Check if input falls between 1 and 100 and is an integer
+                try:
+                    value = int(input("Enter the maximum number of questions you would like to exam: "))
+                    if not 1 <= value <= 100:
+                        raise ValueError
+                    practice_exam_limit = value
+                    print(f"Number of questions set to {practice_exam_limit}")
+                    break
+                except ValueError:
+                    print("Please enter a number between 1 and 100.")
+        elif choice == "Change Domain Exams Questions Limit":
+            while True:
+                try:
+                    value = int(input("Enter the maximum number of questions you want to exam: "))
+                    if not 1 <= value <= 100:
+                        raise ValueError
+                    domain_quiz_limit = value
+                    print(f"Number of questions set to {domain_quiz_limit}")
+                    break
+                except ValueError:
+                    print("Please enter a number between 1 and 100.")
+        elif choice == "Clear Performance History":
+            pass # This will include code to delete table from database
+        elif choice == "Back to Main Menu":
+            return
+
+
+
+
+
 def main_menu():
     global is_running
     while is_running:
@@ -228,18 +271,21 @@ def main_menu():
         print("=" * 50)
         choice=inquirer.select(
             message = "Use the up and down arrow keys to select and press ENTER to confirm\n",
-            choices = ["Topic-based Exam Mode (20 questions)",
-                    "Full Practice Exam Mode (50 questions)",
+            choices = [f"Topic-based Exam Mode ({domain_quiz_limit} questions)",
+                    f"Full Practice Exam Mode ({practice_exam_limit} questions)",
                     "View Performance History",
+                    "Settings",
                     "Exit"
                        ],
         ).execute()
-        if choice == "Topic-based Exam Mode (20 questions)":
+        if choice == f"Topic-based Exam Mode ({domain_quiz_limit} questions)":
             topic_exam()    # starts 20-question domain exam
-        elif choice == "Full Practice Exam Mode (50 questions)":
+        elif choice == f"Full Practice Exam Mode ({practice_exam_limit} questions)":
             run_quiz_engine("full")  # starts 50-question mixed exam
         elif choice == "View Performance History":
             pass
+        elif choice == "Settings":
+            display_settings()
         elif choice == "Exit":
             confirm = inquirer.confirm(message = "Are you sure you want to quit?").execute()
             if confirm:

@@ -1,6 +1,7 @@
 from InquirerPy  import inquirer
 import random
 import json
+import os
 
 # Variables for the program
 
@@ -24,6 +25,7 @@ performance_rank = "moderate" # Stores the classification (Weak, Moderate, Stron
 domain_scores_counter = {} # A dictionary that tracks correct answers per domain example: {"network access": 5}
 domain_totals = {}  # A dictionary that tracks the total number of questions encountered per domain in
 # the current pool (used to calculate accurate percentages)
+SETTINGS_FILE = "settings.json" # file containing settings config of the program
 
 # List variable
 domains =["Network Fundamentals",
@@ -52,42 +54,42 @@ def run_quiz_engine(mode, domain_name=None):
 
     # initialize counters for domain-level performance tracking
     domain_list = []
-    for d in domains:
-        if d != "Back":
-            domain_list.append(d.lower())
+    for domain in domains:
+        if domain != "Back":
+            domain_list.append(domain.lower())
 
     # domain_scores_counter = {}
     # domain_totals = {}
-    for d in domain_list:
-        domain_scores_counter[d] = 0
-        domain_totals[d] = 0
+    for domain in domain_list:
+        domain_scores_counter[domain] = 0
+        domain_totals[domain] = 0
 
     # load JSON question bank from local data storage
     try:
-        with open('questions.json', 'r') as file:
-            data = json.load(file)
-            all_questions = data['questions']
+        with open('questions.json', 'r') as questions_file:
+            questions_data = json.load(questions_file)
+            all_questions = questions_data['questions']
     except FileNotFoundError:
         print("error: questions.json not found.")
         return
 
     # filter questions based on mode using standard for loops
-    pool = []
+    questions_pool = []
     if mode == "domain":
         # generate fixed set of questions from a selected ccna domain
-        for q in all_questions:
-            if q['domain'].lower() == domain_name.lower():
-                pool.append(q)
+        for questions in all_questions:
+            if questions['domain'].lower() == domain_name.lower():
+                questions_pool.append(questions)
         limit = domain_quiz_limit  # set to 20
     else:
         # generate mixed exam randomly selected across all ccna domains
-        for q in all_questions:
-            pool.append(q)
+        for questions in all_questions:
+            questions_pool.append(questions)
         limit = practice_exam_limit  # set to 50
 
     # shuffling questions present in pool and selecting number needed
-    random.shuffle(pool)
-    session_pool = pool[:limit]
+    random.shuffle(questions_pool)
+    session_pool = questions_pool[:limit]
 
     for num, question in enumerate(session_pool, start=1):
         domain_key = question['domain'].lower()
@@ -140,9 +142,9 @@ def display_summary(limit, domain_scores_counter, domain_totals):
 
     # Pass/Fail indication (using your 80% passing_threshold)
     if overall_percentage >= passing_threshold:
-        print("Final Status:  PASS")
+        print("Final Grade:  PASS")
     else:
-        print("Final Status:  FAIL")
+        print("Final Grade:  FAIL")
 
     print("-" * 50)
     # Domain-level performance tracking
@@ -235,10 +237,11 @@ def display_settings():
             while True:
                 # Check if input falls between 1 and 100 and is an integer
                 try:
-                    value = int(input("Enter the maximum number of questions you would like to exam: "))
+                    value = int(input("Enter the maximum number of questions you want to exam: "))
                     if not 1 <= value <= 100:
                         raise ValueError
                     practice_exam_limit = value
+                    save_settings()
                     print(f"Number of questions set to {practice_exam_limit}")
                     break
                 except ValueError:
@@ -250,6 +253,7 @@ def display_settings():
                     if not 1 <= value <= 100:
                         raise ValueError
                     domain_quiz_limit = value
+                    save_settings()
                     print(f"Number of questions set to {domain_quiz_limit}")
                     break
                 except ValueError:
@@ -259,6 +263,30 @@ def display_settings():
         elif choice == "Back to Main Menu":
             return
 
+
+def save_settings():
+    data = {
+        "practice_exam_limit": practice_exam_limit,
+        "domain_quiz_limit": domain_quiz_limit
+    }
+    with open(SETTINGS_FILE, "w") as output_file:
+        json.dump(data, output_file, indent=4)
+
+
+def load_settings():
+    global practice_exam_limit, domain_quiz_limit
+
+    # Check if file exists first
+    if not os.path.exists(SETTINGS_FILE):
+        return  # Do nothing, use the initial values above
+
+    try:
+        with open(SETTINGS_FILE, "r") as settings_file:
+            data = json.load(settings_file)
+            practice_exam_limit = data.get("practice_exam_limit", practice_exam_limit)
+            domain_quiz_limit = data.get("domain_quiz_limit", domain_quiz_limit)
+    except (json.JSONDecodeError, IOError):
+        print("Settings file corrupted. Using default values.")
 
 
 
@@ -293,5 +321,6 @@ def main_menu():
                 is_running = False
 
 if __name__ == "__main__":
+    load_settings()
     main_menu()
 

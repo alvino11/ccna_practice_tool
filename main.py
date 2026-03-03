@@ -221,6 +221,30 @@ def display_history():
 # Load ccna_history.db using Pandas Library
 # Display performance history using Pandas Library
 
+def get_validated_input(prompt, min_value=1, max_value=100):
+    # Handles the repetitive try/except logic for numeric user settings.
+    while True:
+        try:
+            value = int(input(prompt))
+            if min_value <= value <= max_value:
+                return value
+            print(f"Error: Please enter a number between {min_value} and {max_value}.")
+        except ValueError:
+            print("Error: Invalid input. Please enter a whole number.")
+
+
+def safe_load_json(file_path, default_data):
+    # Handles file-related errors for loading settings or questions.
+    if not os.path.exists(file_path):
+        return default_data
+    try:
+        with open(file_path, "r") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Warning: Could not read {file_path} ({e}). Using defaults.")
+        return default_data
+
+
 def display_settings():
     global practice_exam_limit,domain_quiz_limit
     # Generate and select option from the Settings menu
@@ -234,30 +258,17 @@ def display_settings():
                      ],
         ).execute()
         if choice == "Change Full Practice Exam Questions Limit":
-            while True:
-                # Check if input falls between 1 and 100 and is an integer
-                try:
-                    value = int(input("Enter the maximum number of questions you want to exam: "))
-                    if not 1 <= value <= 100:
-                        raise ValueError
-                    practice_exam_limit = value
-                    save_settings()
-                    print(f"Number of questions set to {practice_exam_limit}")
-                    break
-                except ValueError:
-                    print("Please enter a number between 1 and 100.")
+            msg = "Enter max questions for Full Exam (1-100): "
+            practice_exam_limit = get_validated_input(msg)
+            save_settings()
+            print(f"Number of questions set to {practice_exam_limit}")
+
         elif choice == "Change Domain Exams Questions Limit":
-            while True:
-                try:
-                    value = int(input("Enter the maximum number of questions you want to exam: "))
-                    if not 1 <= value <= 100:
-                        raise ValueError
-                    domain_quiz_limit = value
-                    save_settings()
-                    print(f"Number of questions set to {domain_quiz_limit}")
-                    break
-                except ValueError:
-                    print("Please enter a number between 1 and 100.")
+            msg = "Enter max questions for Domain Quiz (1-100): "
+            domain_quiz_limit = get_validated_input(msg)
+            save_settings()
+            print(f"Number of questions set to {domain_quiz_limit}")
+
         elif choice == "Clear Performance History":
             pass # This will include code to delete table from database
         elif choice == "Back to Main Menu":
@@ -276,17 +287,17 @@ def save_settings():
 def load_settings():
     global practice_exam_limit, domain_quiz_limit
 
-    # Check if file exists first
-    if not os.path.exists(SETTINGS_FILE):
-        return  # Do nothing, use the initial values above
+    # Define defaults in case the settings file is missing or broken
+    defaults = {
+        "practice_exam_limit": 50,
+        "domain_quiz_limit": 20
+    }
 
-    try:
-        with open(SETTINGS_FILE, "r") as settings_file:
-            data = json.load(settings_file)
-            practice_exam_limit = data.get("practice_exam_limit", practice_exam_limit)
-            domain_quiz_limit = data.get("domain_quiz_limit", domain_quiz_limit)
-    except (json.JSONDecodeError, IOError):
-        print("Settings file corrupted. Using default values.")
+    data = safe_load_json(SETTINGS_FILE, defaults)
+
+    # Update global variables from the loaded data
+    practice_exam_limit = data.get("practice_exam_limit", defaults["practice_exam_limit"])
+    domain_quiz_limit = data.get("domain_quiz_limit", defaults["domain_quiz_limit"])
 
 
 

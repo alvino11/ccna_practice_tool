@@ -124,6 +124,14 @@ python main.py
 
 ---
 
+## 🛡️ Error Handling & Robustness
+
+The application includes a centralized validation layer to ensure a crash-free experience:
+
+* **Input Guard**: A dedicated validation engine (`get_validated_input`) prevents the application from crashing when users enter non-numeric characters or values outside the 1–100 range.
+* **File Integrity Protection**: The `safe_load_json` utility provides a safety net for configuration and question files. If a file is missing or corrupted, the tool automatically reverts to stable default values instead of terminating.
+* **Persistent Logic**: Refactored settings management ensures that user preferences are validated before being committed to `settings.json`, preventing "dirty data" from affecting future sessions.
+
 ## 🧪 How It Works
 
 1. Launch the CLI tool

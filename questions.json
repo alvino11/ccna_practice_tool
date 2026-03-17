@@ -789,6 +789,1604 @@
       "question_text": "which api style uses stateless communication?",
       "options": {"a": "soap", "b": "rest", "c": "snmp", "d": "telnet"},
       "correct_answer": "b",
-      "explanation": "rest apis are stateless and use http methods."}
+      "explanation": "rest apis are stateless and use http methods."},
+    {
+      "id": 101,
+      "domain": "automation and programmability",
+      "question_text": "what does api stand for in network automation?",
+      "options": {
+        "a": "application programming interface",
+        "b": "automated protocol interface",
+        "c": "application protocol integration",
+        "d": "advanced programming instruction"
+      },
+      "correct_answer": "a",
+      "explanation": "an api allows software systems to communicate and exchange data programmatically."
+    },
+    {
+      "id": 102,
+      "domain": "automation and programmability",
+      "question_text": "which architecture separates the control plane from the data plane?",
+      "options": {
+        "a": "sdn",
+        "b": "mpls",
+        "c": "rip",
+        "d": "stp"
+      },
+      "correct_answer": "a",
+      "explanation": "software defined networking separates the control plane from the forwarding plane."
+    },
+    {
+      "id": 103,
+      "domain": "automation and programmability",
+      "question_text": "which component of sdn makes centralized decisions about network traffic?",
+      "options": {
+        "a": "controller",
+        "b": "switch",
+        "c": "router",
+        "d": "client"
+      },
+      "correct_answer": "a",
+      "explanation": "the sdn controller manages the control plane and network policies."
+    },
+    {
+      "id": 104,
+      "domain": "automation and programmability",
+      "question_text": "which data format uses key value pairs and is widely used in rest apis?",
+      "options": {
+        "a": "json",
+        "b": "csv",
+        "c": "binary",
+        "d": "txt"
+      },
+      "correct_answer": "a",
+      "explanation": "json is a lightweight format commonly used in api communication."
+    },
+    {
+      "id": 105,
+      "domain": "automation and programmability",
+      "question_text": "which configuration management tool uses agentless automation?",
+      "options": {
+        "a": "ansible",
+        "b": "puppet",
+        "c": "chef",
+        "d": "saltstack"
+      },
+      "correct_answer": "a",
+      "explanation": "ansible uses ssh and does not require agents on managed devices."
+    },
+    {
+      "id": 106,
+      "domain": "automation and programmability",
+      "question_text": "which http method is used to create a new resource via a rest api?",
+      "options": {
+        "a": "post",
+        "b": "get",
+        "c": "delete",
+        "d": "head"
+      },
+      "correct_answer": "a",
+      "explanation": "post is typically used to create resources in rest apis."
+    },
+    {
+      "id": 107,
+      "domain": "automation and programmability",
+      "question_text": "which http method removes a resource from a server?",
+      "options": {
+        "a": "put",
+        "b": "delete",
+        "c": "get",
+        "d": "trace"
+      },
+      "correct_answer": "b",
+      "explanation": "delete removes a resource in rest api operations."
+    },
+    {
+      "id": 108,
+      "domain": "automation and programmability",
+      "question_text": "which tool is commonly used to test rest apis?",
+      "options": {
+        "a": "postman",
+        "b": "wireshark",
+        "c": "tcpdump",
+        "d": "putty"
+      },
+      "correct_answer": "a",
+      "explanation": "postman allows sending http requests and testing apis."
+    },
+    {
+      "id": 109,
+      "domain": "automation and programmability",
+      "question_text": "which programming language is most commonly used for network automation scripts?",
+      "options": {
+        "a": "python",
+        "b": "java",
+        "c": "c++",
+        "d": "assembly"
+      },
+      "correct_answer": "a",
+      "explanation": "python has many networking libraries and is widely used for automation."
+    },
+    {
+      "id": 110,
+      "domain": "automation and programmability",
+      "question_text": "which python library is commonly used to automate network devices via ssh?",
+      "options": {
+        "a": "netmiko",
+        "b": "numpy",
+        "c": "flask",
+        "d": "django"
+      },
+      "correct_answer": "a",
+      "explanation": "netmiko simplifies ssh connections to network devices."
+    },
+
+    {
+      "id": 111,
+      "domain": "automation and programmability",
+      "question_text": "which file format is commonly used in ansible playbooks?",
+      "options": {
+        "a": "yaml",
+        "b": "json",
+        "c": "csv",
+        "d": "xml"
+      },
+      "correct_answer": "a",
+      "explanation": "ansible playbooks are typically written using yaml."
+    },
+    {
+      "id": 112,
+      "domain": "automation and programmability",
+      "question_text": "what does sdn stand for?",
+      "options": {
+        "a": "software defined networking",
+        "b": "secure data network",
+        "c": "service distribution node",
+        "d": "system data networking"
+      },
+      "correct_answer": "a",
+      "explanation": "sdn allows centralized network management through software controllers."
+    },
+    {
+      "id": 113,
+      "domain": "automation and programmability",
+      "question_text": "which protocol is commonly used for api communication?",
+      "options": {
+        "a": "http",
+        "b": "icmp",
+        "c": "rip",
+        "d": "stp"
+      },
+      "correct_answer": "a",
+      "explanation": "most rest apis communicate over http or https."
+    },
+    {
+      "id": 114,
+      "domain": "automation and programmability",
+      "question_text": "what is the primary purpose of network automation?",
+      "options": {
+        "a": "reduce manual configuration tasks",
+        "b": "increase cable speed",
+        "c": "replace routers",
+        "d": "remove firewalls"
+      },
+      "correct_answer": "a",
+      "explanation": "automation reduces human error and speeds up configuration tasks."
+    },
+    {
+      "id": 115,
+      "domain": "automation and programmability",
+      "question_text": "which version control system is commonly used for automation scripts?",
+      "options": {
+        "a": "git",
+        "b": "ftp",
+        "c": "telnet",
+        "d": "tftp"
+      },
+      "correct_answer": "a",
+      "explanation": "git tracks changes and enables collaboration on code."
+    },
+    {
+      "id": 116,
+      "domain": "automation and programmability",
+      "question_text": "which api style uses stateless communication?",
+      "options": {
+        "a": "rest",
+        "b": "soap",
+        "c": "smtp",
+        "d": "snmp"
+      },
+      "correct_answer": "a",
+      "explanation": "rest apis are stateless and rely on http methods."
+    },
+    {
+      "id": 117,
+      "domain": "automation and programmability",
+      "question_text": "which automation concept allows infrastructure to be defined using code?",
+      "options": {
+        "a": "infrastructure as code",
+        "b": "virtual switching",
+        "c": "packet encapsulation",
+        "d": "port aggregation"
+      },
+      "correct_answer": "a",
+      "explanation": "infrastructure as code manages infrastructure through scripts and configuration files."
+    },
+    {
+      "id": 118,
+      "domain": "automation and programmability",
+      "question_text": "which data format is human readable and commonly used in configuration files?",
+      "options": {
+        "a": "yaml",
+        "b": "binary",
+        "c": "exe",
+        "d": "hex"
+      },
+      "correct_answer": "a",
+      "explanation": "yaml is readable and widely used in automation frameworks."
+    },
+    {
+      "id": 119,
+      "domain": "automation and programmability",
+      "question_text": "which component in sdn installs forwarding rules on switches?",
+      "options": {
+        "a": "controller",
+        "b": "dns",
+        "c": "proxy",
+        "d": "client"
+      },
+      "correct_answer": "a",
+      "explanation": "the sdn controller programs forwarding tables on network devices."
+    },
+    {
+      "id": 120,
+      "domain": "automation and programmability",
+      "question_text": "which automation tool is used for provisioning infrastructure across cloud platforms?",
+      "options": {
+        "a": "terraform",
+        "b": "snmp",
+        "c": "ntp",
+        "d": "cdp"
+      },
+      "correct_answer": "a",
+      "explanation": "terraform is used for infrastructure provisioning using code."
+    },
+
+    {
+      "id": 121,
+      "domain": "automation and programmability",
+      "question_text": "which protocol secures rest api communication?",
+      "options": {
+        "a": "https",
+        "b": "ftp",
+        "c": "telnet",
+        "d": "tftp"
+      },
+      "correct_answer": "a",
+      "explanation": "https encrypts api communication using tls."
+    },
+    {
+      "id": 122,
+      "domain": "automation and programmability",
+      "question_text": "which python library is used to send http requests to apis?",
+      "options": {
+        "a": "requests",
+        "b": "tkinter",
+        "c": "matplotlib",
+        "d": "pandas"
+      },
+      "correct_answer": "a",
+      "explanation": "the requests library simplifies sending http requests."
+    },
+    {
+      "id": 123,
+      "domain": "automation and programmability",
+      "question_text": "which concept allows network devices to be configured through programmable interfaces?",
+      "options": {
+        "a": "network programmability",
+        "b": "packet switching",
+        "c": "circuit switching",
+        "d": "frame relay"
+      },
+      "correct_answer": "a",
+      "explanation": "network programmability enables automation using software interfaces."
+    },
+    {
+      "id": 124,
+      "domain": "automation and programmability",
+      "question_text": "which command in git uploads changes to a remote repository?",
+      "options": {
+        "a": "git push",
+        "b": "git init",
+        "c": "git clone",
+        "d": "git pull"
+      },
+      "correct_answer": "a",
+      "explanation": "git push sends committed changes to a remote repository."
+    },
+    {
+      "id": 125,
+      "domain": "automation and programmability",
+      "question_text": "which protocol is used by ansible to communicate with network devices?",
+      "options": {
+        "a": "ssh",
+        "b": "icmp",
+        "c": "rip",
+        "d": "stp"
+      },
+      "correct_answer": "a",
+      "explanation": "ansible typically uses ssh for device communication."
+    },
+
+    {
+      "id": 126,
+      "domain": "automation and programmability",
+      "question_text": "which rest api method updates an existing resource?",
+      "options": {
+        "a": "put",
+        "b": "get",
+        "c": "trace",
+        "d": "options"
+      },
+      "correct_answer": "a",
+      "explanation": "put replaces or updates a resource."
+    },
+    {
+      "id": 127,
+      "domain": "automation and programmability",
+      "question_text": "which file extension is commonly used for yaml files?",
+      "options": {
+        "a": ".yml",
+        "b": ".exe",
+        "c": ".bin",
+        "d": ".log"
+      },
+      "correct_answer": "a",
+      "explanation": "yaml files commonly use the .yml extension."
+    },
+    {
+      "id": 128,
+      "domain": "automation and programmability",
+      "question_text": "which technology allows applications to interact with network infrastructure programmatically?",
+      "options": {
+        "a": "apis",
+        "b": "vlans",
+        "c": "nat",
+        "d": "stp"
+      },
+      "correct_answer": "a",
+      "explanation": "apis expose programmable interfaces for applications."
+    },
+    {
+      "id": 129,
+      "domain": "automation and programmability",
+      "question_text": "which concept ensures a system returns the same result regardless of how many times a configuration runs?",
+      "options": {
+        "a": "idempotency",
+        "b": "encapsulation",
+        "c": "fragmentation",
+        "d": "multiplexing"
+      },
+      "correct_answer": "a",
+      "explanation": "idempotent automation ensures consistent results when repeated."
+    },
+    {
+      "id": 130,
+      "domain": "automation and programmability",
+      "question_text": "which component in automation executes configuration tasks sequentially?",
+      "options": {
+        "a": "playbook",
+        "b": "router",
+        "c": "switch",
+        "d": "firewall"
+      },
+      "correct_answer": "a",
+      "explanation": "ansible playbooks define ordered automation tasks."
+    },
+
+    {
+      "id": 131,
+      "domain": "automation and programmability",
+      "question_text": "which open protocol allows devices from different vendors to be managed by sdn controllers?",
+      "options": {
+        "a": "openflow",
+        "b": "ospf",
+        "c": "rip",
+        "d": "bgp"
+      },
+      "correct_answer": "a",
+      "explanation": "openflow allows sdn controllers to communicate with network devices."
+    },
+    {
+      "id": 132,
+      "domain": "automation and programmability",
+      "question_text": "which api response code indicates success?",
+      "options": {
+        "a": "200",
+        "b": "404",
+        "c": "500",
+        "d": "403"
+      },
+      "correct_answer": "a",
+      "explanation": "http status code 200 indicates a successful request."
+    },
+    {
+      "id": 133,
+      "domain": "automation and programmability",
+      "question_text": "which api response code indicates resource not found?",
+      "options": {
+        "a": "404",
+        "b": "200",
+        "c": "302",
+        "d": "100"
+      },
+      "correct_answer": "a",
+      "explanation": "404 indicates the requested resource does not exist."
+    },
+    {
+      "id": 134,
+      "domain": "automation and programmability",
+      "question_text": "which scripting language is built into many network operating systems for automation?",
+      "options": {
+        "a": "python",
+        "b": "html",
+        "c": "sql",
+        "d": "css"
+      },
+      "correct_answer": "a",
+      "explanation": "python is widely supported in network operating systems."
+    },
+    {
+      "id": 135,
+      "domain": "automation and programmability",
+      "question_text": "which tool allows automated configuration testing and continuous integration?",
+      "options": {
+        "a": "jenkins",
+        "b": "ftp",
+        "c": "dns",
+        "d": "ntp"
+      },
+      "correct_answer": "a",
+      "explanation": "jenkins is widely used for automation pipelines and ci/cd."
+    },
+
+    {
+      "id": 136,
+      "domain": "automation and programmability",
+      "question_text": "which concept enables centralized management of network policies?",
+      "options": {
+        "a": "sdn controller",
+        "b": "arp table",
+        "c": "nat rule",
+        "d": "routing table"
+      },
+      "correct_answer": "a",
+      "explanation": "sdn controllers manage network behavior centrally."
+    },
+    {
+      "id": 137,
+      "domain": "automation and programmability",
+      "question_text": "which rest api method retrieves resource headers without the body?",
+      "options": {
+        "a": "head",
+        "b": "post",
+        "c": "put",
+        "d": "delete"
+      },
+      "correct_answer": "a",
+      "explanation": "head retrieves metadata without the response body."
+    },
+    {
+      "id": 138,
+      "domain": "automation and programmability",
+      "question_text": "which architecture type allows applications to control network infrastructure through software?",
+      "options": {
+        "a": "sdn",
+        "b": "lan",
+        "c": "wan",
+        "d": "vpn"
+      },
+      "correct_answer": "a",
+      "explanation": "sdn provides programmable control of the network."
+    },
+    {
+      "id": 139,
+      "domain": "automation and programmability",
+      "question_text": "which repository hosting platform is widely used to store automation scripts?",
+      "options": {
+        "a": "github",
+        "b": "dns",
+        "c": "ntp",
+        "d": "smtp"
+      },
+      "correct_answer": "a",
+      "explanation": "github hosts version controlled code repositories."
+    },
+    {
+      "id": 140,
+      "domain": "automation and programmability",
+      "question_text": "which concept allows network infrastructure to be deployed automatically through scripts?",
+      "options": {
+        "a": "automation",
+        "b": "fragmentation",
+        "c": "encapsulation",
+        "d": "multiplexing"
+      },
+      "correct_answer": "a",
+      "explanation": "automation enables consistent infrastructure deployment through code."
+    },
+    {
+      "id": 139,
+      "domain": "ip connectivity",
+      "question_text": "which command displays ospf neighbor adjacencies on a router?",
+      "options": {
+        "a": "show ip ospf neighbor",
+        "b": "show ip route",
+        "c": "show ospf database",
+        "d": "show ip protocols"
+      },
+      "correct_answer": "a",
+      "explanation": "show ip ospf neighbor displays the routers that have formed ospf adjacencies."
+    },
+    {
+      "id": 140,
+      "domain": "ip connectivity",
+      "question_text": "which routing protocol uses the shortest path first algorithm?",
+      "options": {
+        "a": "rip",
+        "b": "ospf",
+        "c": "bgp",
+        "d": "igrp"
+      },
+      "correct_answer": "b",
+      "explanation": "ospf calculates routes using the dijkstra shortest path first algorithm."
+    },
+    {
+      "id": 141,
+      "domain": "ip connectivity",
+      "question_text": "what ospf term describes routers that share the same link state database?",
+      "options": {
+        "a": "adjacent routers",
+        "b": "neighbors",
+        "c": "designated routers",
+        "d": "autonomous routers"
+      },
+      "correct_answer": "a",
+      "explanation": "adjacent routers have synchronized link-state databases."
+    },
+    {
+      "id": 142,
+      "domain": "ip connectivity",
+      "question_text": "which type of ospf packet is used to discover neighbors?",
+      "options": {
+        "a": "hello",
+        "b": "update",
+        "c": "request",
+        "d": "ack"
+      },
+      "correct_answer": "a",
+      "explanation": "hello packets are used to discover and maintain ospf neighbors."
+    },
+    {
+      "id": 143,
+      "domain": "ip connectivity",
+      "question_text": "what is the purpose of the designated router in ospf networks?",
+      "options": {
+        "a": "reduce adjacency formation",
+        "b": "assign ip addresses",
+        "c": "filter routes",
+        "d": "forward packets faster"
+      },
+      "correct_answer": "a",
+      "explanation": "the designated router reduces the number of adjacencies in broadcast networks."
+    },
+    {
+      "id": 144,
+      "domain": "ip connectivity",
+      "question_text": "which command enables ipv6 routing on a cisco router?",
+      "options": {
+        "a": "ipv6 enable",
+        "b": "ipv6 unicast-routing",
+        "c": "ipv6 start",
+        "d": "router ipv6"
+      },
+      "correct_answer": "b",
+      "explanation": "ipv6 unicast-routing enables ipv6 routing functionality."
+    },
+    {
+      "id": 145,
+      "domain": "ip connectivity",
+      "question_text": "which command displays ipv6 routing information?",
+      "options": {
+        "a": "show ip route",
+        "b": "show ipv6 route",
+        "c": "show route ipv6",
+        "d": "show ipv6 table"
+      },
+      "correct_answer": "b",
+      "explanation": "show ipv6 route displays the ipv6 routing table."
+    },
+    {
+      "id": 146,
+      "domain": "ip connectivity",
+      "question_text": "which protocol exchanges routing information between autonomous systems?",
+      "options": {
+        "a": "ospf",
+        "b": "bgp",
+        "c": "rip",
+        "d": "eigrp"
+      },
+      "correct_answer": "b",
+      "explanation": "bgp is used for routing between autonomous systems."
+    },
+    {
+      "id": 147,
+      "domain": "ip connectivity",
+      "question_text": "which routing protocol uses link state advertisements?",
+      "options": {
+        "a": "ospf",
+        "b": "rip",
+        "c": "bgp",
+        "d": "igrp"
+      },
+      "correct_answer": "a",
+      "explanation": "ospf distributes link state advertisements to build its topology database."
+    },
+    {
+      "id": 148,
+      "domain": "ip connectivity",
+      "question_text": "which command shows the routing protocols currently running on a router?",
+      "options": {
+        "a": "show protocols",
+        "b": "show ip route",
+        "c": "show ip protocols",
+        "d": "show running-config"
+      },
+      "correct_answer": "c",
+      "explanation": "show ip protocols displays configured routing protocols and timers."
+    },
+
+    {
+      "id": 149,
+      "domain": "ip connectivity",
+      "question_text": "what is the primary purpose of a default route?",
+      "options": {
+        "a": "send unknown traffic to a gateway",
+        "b": "block unwanted packets",
+        "c": "improve vlan performance",
+        "d": "encrypt traffic"
+      },
+      "correct_answer": "a",
+      "explanation": "a default route forwards packets when no specific route exists."
+    },
+    {
+      "id": 150,
+      "domain": "ip connectivity",
+      "question_text": "which command configures a default static route?",
+      "options": {
+        "a": "ip route 0.0.0.0 0.0.0.0 next-hop",
+        "b": "ip default-route",
+        "c": "route default",
+        "d": "default ip route"
+      },
+      "correct_answer": "a",
+      "explanation": "0.0.0.0/0 represents the default route."
+    },
+
+    {
+      "id": 151,
+      "domain": "ip connectivity",
+      "question_text": "which type of route is learned automatically from routing protocols?",
+      "options": {
+        "a": "dynamic route",
+        "b": "static route",
+        "c": "direct route",
+        "d": "default route"
+      },
+      "correct_answer": "a",
+      "explanation": "dynamic routes are learned from routing protocols."
+    },
+    {
+      "id": 152,
+      "domain": "ip connectivity",
+      "question_text": "which metric does rip use to determine the best path?",
+      "options": {
+        "a": "cost",
+        "b": "delay",
+        "c": "hop count",
+        "d": "bandwidth"
+      },
+      "correct_answer": "c",
+      "explanation": "rip determines routes using hop count."
+    },
+    {
+      "id": 153,
+      "domain": "ip connectivity",
+      "question_text": "which command enters ospf configuration mode?",
+      "options": {
+        "a": "router ospf 1",
+        "b": "enable ospf",
+        "c": "ospf start",
+        "d": "router ospf enable"
+      },
+      "correct_answer": "a",
+      "explanation": "router ospf followed by process id starts ospf configuration."
+    },
+    {
+      "id": 154,
+      "domain": "ip connectivity",
+      "question_text": "which ospf concept divides networks into logical sections?",
+      "options": {
+        "a": "areas",
+        "b": "vlans",
+        "c": "segments",
+        "d": "zones"
+      },
+      "correct_answer": "a",
+      "explanation": "ospf uses areas to improve scalability."
+    },
+    {
+      "id": 155,
+      "domain": "ip connectivity",
+      "question_text": "which route type appears with the letter c in the routing table?",
+      "options": {
+        "a": "connected route",
+        "b": "static route",
+        "c": "ospf route",
+        "d": "bgp route"
+      },
+      "correct_answer": "a",
+      "explanation": "c indicates directly connected networks."
+    },
+    {
+      "id": 156,
+      "domain": "ip connectivity",
+      "question_text": "which command displays the ospf link state database?",
+      "options": {
+        "a": "show ip ospf database",
+        "b": "show ospf table",
+        "c": "show ip route ospf",
+        "d": "show ospf neighbors"
+      },
+      "correct_answer": "a",
+      "explanation": "this command displays the link state database."
+    },
+
+    {
+      "id": 157,
+      "domain": "ip connectivity",
+      "question_text": "what ospf role is elected on broadcast networks to reduce routing traffic?",
+      "options": {
+        "a": "designated router",
+        "b": "backup router",
+        "c": "edge router",
+        "d": "aggregation router"
+      },
+      "correct_answer": "a",
+      "explanation": "the designated router manages adjacency formation on broadcast networks."
+    },
+    {
+      "id": 158,
+      "domain": "ip connectivity",
+      "question_text": "which field in an ip packet decreases by one at each hop?",
+      "options": {
+        "a": "ttl",
+        "b": "checksum",
+        "c": "length",
+        "d": "protocol"
+      },
+      "correct_answer": "a",
+      "explanation": "the ttl field prevents packets from looping indefinitely."
+    },
+    {
+      "id": 159,
+      "domain": "ip connectivity",
+      "question_text": "which routing table code represents ospf learned routes?",
+      "options": {
+        "a": "o",
+        "b": "r",
+        "c": "b",
+        "d": "s"
+      },
+      "correct_answer": "a",
+      "explanation": "o indicates ospf routes in the routing table."
+    },
+    {
+      "id": 160,
+      "domain": "ip connectivity",
+      "question_text": "which routing protocol is considered distance vector?",
+      "options": {
+        "a": "rip",
+        "b": "ospf",
+        "c": "is-is",
+        "d": "bgp"
+      },
+      "correct_answer": "a",
+      "explanation": "rip is a classic distance vector routing protocol."
+    },
+
+    {
+      "id": 161,
+      "domain": "ip connectivity",
+      "question_text": "which command tests connectivity to another device using icmp?",
+      "options": {
+        "a": "ping",
+        "b": "trace",
+        "c": "show route",
+        "d": "lookup"
+      },
+      "correct_answer": "a",
+      "explanation": "ping sends icmp echo requests to test reachability."
+    },
+    {
+      "id": 162,
+      "domain": "ip connectivity",
+      "question_text": "which command traces the path packets take to a destination?",
+      "options": {
+        "a": "traceroute",
+        "b": "ping",
+        "c": "show route",
+        "d": "debug ip"
+      },
+      "correct_answer": "a",
+      "explanation": "traceroute shows each hop along the path."
+    },
+    {
+      "id": 163,
+      "domain": "ip connectivity",
+      "question_text": "which ospf timer determines how often hello packets are sent?",
+      "options": {
+        "a": "hello interval",
+        "b": "dead timer",
+        "c": "wait timer",
+        "d": "hold timer"
+      },
+      "correct_answer": "a",
+      "explanation": "hello interval defines the frequency of hello packets."
+    },
+    {
+      "id": 164,
+      "domain": "ip connectivity",
+      "question_text": "what happens when the ospf dead timer expires?",
+      "options": {
+        "a": "neighbor is declared down",
+        "b": "routing table clears",
+        "c": "router reloads",
+        "d": "network interface shuts down"
+      },
+      "correct_answer": "a",
+      "explanation": "if no hello packets are received before the dead timer expires the neighbor is considered down."
+    },
+
+    {
+      "id": 165,
+      "domain": "ip connectivity",
+      "question_text": "which routing protocol supports hierarchical area design?",
+      "options": {
+        "a": "ospf",
+        "b": "rip",
+        "c": "igrp",
+        "d": "egp"
+      },
+      "correct_answer": "a",
+      "explanation": "ospf supports multiple areas for scalability."
+    },
+    {
+      "id": 166,
+      "domain": "ip connectivity",
+      "question_text": "which route type has the lowest administrative distance by default?",
+      "options": {
+        "a": "connected",
+        "b": "static",
+        "c": "ospf",
+        "d": "rip"
+      },
+      "correct_answer": "a",
+      "explanation": "connected routes have administrative distance of 0."
+    },
+
+    {
+      "id": 167,
+      "domain": "ip connectivity",
+      "question_text": "which command shows the ip routing table summary?",
+      "options": {
+        "a": "show ip route",
+        "b": "show protocols",
+        "c": "show routing",
+        "d": "show table"
+      },
+      "correct_answer": "a",
+      "explanation": "show ip route displays the routing table."
+    },
+
+    {
+      "id": 168,
+      "domain": "ip connectivity",
+      "question_text": "which ospf router role is elected as a backup to the designated router?",
+      "options": {
+        "a": "bdr",
+        "b": "idr",
+        "c": "abr",
+        "d": "asbr"
+      },
+      "correct_answer": "a",
+      "explanation": "the backup designated router takes over if the dr fails."
+    },
+
+    {
+      "id": 169,
+      "domain": "ip connectivity",
+      "question_text": "which device primarily performs packet forwarding between networks?",
+      "options": {
+        "a": "router",
+        "b": "switch",
+        "c": "hub",
+        "d": "bridge"
+      },
+      "correct_answer": "a",
+      "explanation": "routers forward packets between different networks."
+    },
+
+    {
+      "id": 170,
+      "domain": "ip connectivity",
+      "question_text": "which ospf router type connects different ospf areas?",
+      "options": {
+        "a": "area border router",
+        "b": "designated router",
+        "c": "internal router",
+        "d": "stub router"
+      },
+      "correct_answer": "a",
+      "explanation": "an abr connects multiple ospf areas."
+    },
+
+    {
+      "id": 171,
+      "domain": "ip connectivity",
+      "question_text": "which ospf router injects external routes into the ospf domain?",
+      "options": {
+        "a": "asbr",
+        "b": "abr",
+        "c": "dr",
+        "d": "bdr"
+      },
+      "correct_answer": "a",
+      "explanation": "an autonomous system boundary router redistributes external routes."
+    },
+
+    {
+      "id": 172,
+      "domain": "ip connectivity",
+      "question_text": "which routing table code indicates a static route?",
+      "options": {
+        "a": "s",
+        "b": "c",
+        "c": "o",
+        "d": "r"
+      },
+      "correct_answer": "a",
+      "explanation": "s indicates a static route."
+    },
+
+    {
+      "id": 173,
+      "domain": "ip connectivity",
+      "question_text": "which ip connectivity feature prevents routing loops in distance vector protocols?",
+      "options": {
+        "a": "split horizon",
+        "b": "port security",
+        "c": "trunking",
+        "d": "nat"
+      },
+      "correct_answer": "a",
+      "explanation": "split horizon prevents routing updates from being sent back on the interface they were learned from."
+    },
+
+    {
+      "id": 174,
+      "domain": "ip connectivity",
+      "question_text": "which rip version supports classless routing and vlsm?",
+      "options": {
+        "a": "rip version 2",
+        "b": "rip version 1",
+        "c": "rip ng",
+        "d": "igrp"
+      },
+      "correct_answer": "a",
+      "explanation": "rip version 2 supports vlsm and authentication."
+    },
+
+    {
+      "id": 175,
+      "domain": "ip connectivity",
+      "question_text": "which command displays ipv6 neighbor information?",
+      "options": {
+        "a": "show ipv6 neighbors",
+        "b": "show arp",
+        "c": "show ip route",
+        "d": "show ipv6 table"
+      },
+      "correct_answer": "a",
+      "explanation": "show ipv6 neighbors displays neighbor discovery entries."
+    },
+
+    {
+      "id": 176,
+      "domain": "ip connectivity",
+      "question_text": "which ipv6 routing protocol is equivalent to ospf for ipv4?",
+      "options": {
+        "a": "ospfv3",
+        "b": "ripng",
+        "c": "bgp",
+        "d": "isis"
+      },
+      "correct_answer": "a",
+      "explanation": "ospfv3 is the ipv6 version of ospf."
+    },
+
+    {
+      "id": 177,
+      "domain": "ip connectivity",
+      "question_text": "which routing concept allows summarizing multiple routes into a single prefix?",
+      "options": {
+        "a": "route aggregation",
+        "b": "fragmentation",
+        "c": "encapsulation",
+        "d": "multiplexing"
+      },
+      "correct_answer": "a",
+      "explanation": "route aggregation reduces routing table size."
+    },
+
+    {
+      "id": 178,
+      "domain": "ip connectivity",
+      "question_text": "which metric does ospf primarily use to determine path selection?",
+      "options": {
+        "a": "cost",
+        "b": "delay",
+        "c": "hop count",
+        "d": "reliability"
+      },
+      "correct_answer": "a",
+      "explanation": "ospf uses cost derived mainly from interface bandwidth."
+    },
+    {
+      "id": 179,
+      "domain": "security fundamentals",
+      "question_text": "which security principle ensures that data is accessible only to authorized users?",
+      "options": {
+        "a": "confidentiality",
+        "b": "integrity",
+        "c": "availability",
+        "d": "authentication"
+      },
+      "correct_answer": "a",
+      "explanation": "confidentiality ensures sensitive data is protected from unauthorized access."
+    },
+    {
+      "id": 180,
+      "domain": "security fundamentals",
+      "question_text": "which security principle ensures that data is not altered during transmission?",
+      "options": {
+        "a": "integrity",
+        "b": "confidentiality",
+        "c": "availability",
+        "d": "authorization"
+      },
+      "correct_answer": "a",
+      "explanation": "integrity ensures data remains accurate and unchanged."
+    },
+    {
+      "id": 181,
+      "domain": "security fundamentals",
+      "question_text": "which security principle ensures systems and data are accessible when needed?",
+      "options": {
+        "a": "availability",
+        "b": "confidentiality",
+        "c": "integrity",
+        "d": "accounting"
+      },
+      "correct_answer": "a",
+      "explanation": "availability ensures reliable access to systems and resources."
+    },
+    {
+      "id": 182,
+      "domain": "security fundamentals",
+      "question_text": "which aaa component verifies the identity of a user?",
+      "options": {
+        "a": "authentication",
+        "b": "authorization",
+        "c": "accounting",
+        "d": "access"
+      },
+      "correct_answer": "a",
+      "explanation": "authentication confirms a user's identity."
+    },
+    {
+      "id": 183,
+      "domain": "security fundamentals",
+      "question_text": "which aaa component determines what resources a user can access?",
+      "options": {
+        "a": "authorization",
+        "b": "authentication",
+        "c": "accounting",
+        "d": "validation"
+      },
+      "correct_answer": "a",
+      "explanation": "authorization determines permissions after authentication."
+    },
+    {
+      "id": 184,
+      "domain": "security fundamentals",
+      "question_text": "which aaa component records user actions on a network?",
+      "options": {
+        "a": "accounting",
+        "b": "authentication",
+        "c": "authorization",
+        "d": "encryption"
+      },
+      "correct_answer": "a",
+      "explanation": "accounting tracks and logs user activities."
+    },
+    {
+      "id": 185,
+      "domain": "security fundamentals",
+      "question_text": "which protocol is commonly used for centralized authentication in networks?",
+      "options": {
+        "a": "radius",
+        "b": "ftp",
+        "c": "dns",
+        "d": "ntp"
+      },
+      "correct_answer": "a",
+      "explanation": "radius provides centralized authentication, authorization, and accounting."
+    },
+    {
+      "id": 186,
+      "domain": "security fundamentals",
+      "question_text": "which protocol provides authentication and encryption for remote access?",
+      "options": {
+        "a": "ssh",
+        "b": "telnet",
+        "c": "ftp",
+        "d": "tftp"
+      },
+      "correct_answer": "a",
+      "explanation": "ssh encrypts traffic and provides secure remote management."
+    },
+    {
+      "id": 187,
+      "domain": "security fundamentals",
+      "question_text": "which attack involves intercepting communication between two devices?",
+      "options": {
+        "a": "man in the middle",
+        "b": "phishing",
+        "c": "dos",
+        "d": "spoofing"
+      },
+      "correct_answer": "a",
+      "explanation": "man-in-the-middle attacks intercept or modify communication."
+    },
+    {
+      "id": 188,
+      "domain": "security fundamentals",
+      "question_text": "which attack tricks users into revealing sensitive information?",
+      "options": {
+        "a": "phishing",
+        "b": "spoofing",
+        "c": "sniffing",
+        "d": "replay"
+      },
+      "correct_answer": "a",
+      "explanation": "phishing typically uses deceptive emails or websites."
+    },
+
+    {
+      "id": 189,
+      "domain": "security fundamentals",
+      "question_text": "which device inspects and filters traffic based on security rules?",
+      "options": {
+        "a": "firewall",
+        "b": "switch",
+        "c": "hub",
+        "d": "repeater"
+      },
+      "correct_answer": "a",
+      "explanation": "firewalls enforce security policies by filtering network traffic."
+    },
+    {
+      "id": 190,
+      "domain": "security fundamentals",
+      "question_text": "which security feature blocks unauthorized dhcp servers?",
+      "options": {
+        "a": "dhcp snooping",
+        "b": "portfast",
+        "c": "trunking",
+        "d": "vtp"
+      },
+      "correct_answer": "a",
+      "explanation": "dhcp snooping prevents rogue dhcp servers."
+    },
+    {
+      "id": 191,
+      "domain": "security fundamentals",
+      "question_text": "which feature protects against arp spoofing attacks?",
+      "options": {
+        "a": "dynamic arp inspection",
+        "b": "nat",
+        "c": "stp",
+        "d": "vtp"
+      },
+      "correct_answer": "a",
+      "explanation": "dynamic arp inspection validates arp packets."
+    },
+    {
+      "id": 192,
+      "domain": "security fundamentals",
+      "question_text": "which feature prevents ip address spoofing on switch ports?",
+      "options": {
+        "a": "ip source guard",
+        "b": "portfast",
+        "c": "loop guard",
+        "d": "vtp pruning"
+      },
+      "correct_answer": "a",
+      "explanation": "ip source guard filters traffic based on dhcp snooping bindings."
+    },
+    {
+      "id": 193,
+      "domain": "security fundamentals",
+      "question_text": "which type of firewall inspects traffic up to layer 7?",
+      "options": {
+        "a": "next generation firewall",
+        "b": "packet filtering firewall",
+        "c": "stateless firewall",
+        "d": "proxy switch"
+      },
+      "correct_answer": "a",
+      "explanation": "next generation firewalls inspect application-level traffic."
+    },
+    {
+      "id": 194,
+      "domain": "security fundamentals",
+      "question_text": "which security practice limits access to only necessary resources?",
+      "options": {
+        "a": "principle of least privilege",
+        "b": "open access",
+        "c": "default routing",
+        "d": "port mirroring"
+      },
+      "correct_answer": "a",
+      "explanation": "least privilege grants users only the permissions they need."
+    },
+    {
+      "id": 195,
+      "domain": "security fundamentals",
+      "question_text": "which type of malware encrypts files and demands payment?",
+      "options": {
+        "a": "ransomware",
+        "b": "worm",
+        "c": "spyware",
+        "d": "adware"
+      },
+      "correct_answer": "a",
+      "explanation": "ransomware encrypts files and demands payment for decryption."
+    },
+    {
+      "id": 196,
+      "domain": "security fundamentals",
+      "question_text": "which attack attempts to guess passwords repeatedly?",
+      "options": {
+        "a": "brute force",
+        "b": "spoofing",
+        "c": "phishing",
+        "d": "sniffing"
+      },
+      "correct_answer": "a",
+      "explanation": "brute force attacks attempt many password combinations."
+    },
+    {
+      "id": 197,
+      "domain": "security fundamentals",
+      "question_text": "which protocol encrypts web traffic?",
+      "options": {
+        "a": "https",
+        "b": "http",
+        "c": "ftp",
+        "d": "telnet"
+      },
+      "correct_answer": "a",
+      "explanation": "https uses tls to encrypt web communications."
+    },
+    {
+      "id": 198,
+      "domain": "security fundamentals",
+      "question_text": "which technique hides internal ip addresses from external networks?",
+      "options": {
+        "a": "nat",
+        "b": "dns",
+        "c": "arp",
+        "d": "stp"
+      },
+      "correct_answer": "a",
+      "explanation": "nat translates private ip addresses to public addresses."
+    },
+
+    {
+      "id": 199,
+      "domain": "security fundamentals",
+      "question_text": "which technology provides secure communication over untrusted networks?",
+      "options": {
+        "a": "vpn",
+        "b": "nat",
+        "c": "vlan",
+        "d": "rip"
+      },
+      "correct_answer": "a",
+      "explanation": "vpn encrypts traffic across public networks."
+    },
+    {
+      "id": 200,
+      "domain": "security fundamentals",
+      "question_text": "which vpn protocol provides secure ip communications by authenticating and encrypting packets?",
+      "options": {
+        "a": "ipsec",
+        "b": "rip",
+        "c": "bgp",
+        "d": "ospf"
+      },
+      "correct_answer": "a",
+      "explanation": "ipsec secures ip communications using encryption."
+    },
+
+    {
+      "id": 201,
+      "domain": "security fundamentals",
+      "question_text": "which security system monitors network traffic for suspicious activity?",
+      "options": {
+        "a": "ids",
+        "b": "dns",
+        "c": "nat",
+        "d": "arp"
+      },
+      "correct_answer": "a",
+      "explanation": "intrusion detection systems monitor networks for malicious activity."
+    },
+    {
+      "id": 202,
+      "domain": "security fundamentals",
+      "question_text": "which security system can actively block malicious traffic?",
+      "options": {
+        "a": "ips",
+        "b": "ids",
+        "c": "dns",
+        "d": "nat"
+      },
+      "correct_answer": "a",
+      "explanation": "intrusion prevention systems detect and block threats."
+    },
+
+    {
+      "id": 203,
+      "domain": "security fundamentals",
+      "question_text": "which authentication factor involves something you know?",
+      "options": {
+        "a": "password",
+        "b": "fingerprint",
+        "c": "smart card",
+        "d": "token"
+      },
+      "correct_answer": "a",
+      "explanation": "passwords are knowledge-based authentication."
+    },
+    {
+      "id": 204,
+      "domain": "security fundamentals",
+      "question_text": "which authentication factor involves something you are?",
+      "options": {
+        "a": "biometric",
+        "b": "password",
+        "c": "token",
+        "d": "pin"
+      },
+      "correct_answer": "a",
+      "explanation": "biometrics include fingerprints or facial recognition."
+    },
+
+    {
+      "id": 205,
+      "domain": "security fundamentals",
+      "question_text": "which technique disguises one device as another on a network?",
+      "options": {
+        "a": "spoofing",
+        "b": "fragmentation",
+        "c": "encapsulation",
+        "d": "multiplexing"
+      },
+      "correct_answer": "a",
+      "explanation": "spoofing involves falsifying identity information."
+    },
+
+    {
+      "id": 206,
+      "domain": "security fundamentals",
+      "question_text": "which encryption type uses the same key for encryption and decryption?",
+      "options": {
+        "a": "symmetric encryption",
+        "b": "asymmetric encryption",
+        "c": "hashing",
+        "d": "digital signature"
+      },
+      "correct_answer": "a",
+      "explanation": "symmetric encryption uses a single shared key."
+    },
+    {
+      "id": 207,
+      "domain": "security fundamentals",
+      "question_text": "which encryption uses a public and private key pair?",
+      "options": {
+        "a": "asymmetric encryption",
+        "b": "symmetric encryption",
+        "c": "hashing",
+        "d": "compression"
+      },
+      "correct_answer": "a",
+      "explanation": "asymmetric encryption uses public and private keys."
+    },
+
+    {
+      "id": 208,
+      "domain": "security fundamentals",
+      "question_text": "which algorithm converts data into a fixed length value for verification?",
+      "options": {
+        "a": "hashing",
+        "b": "routing",
+        "c": "fragmentation",
+        "d": "multiplexing"
+      },
+      "correct_answer": "a",
+      "explanation": "hash functions generate unique fixed-length digests."
+    },
+
+    {
+      "id": 209,
+      "domain": "security fundamentals",
+      "question_text": "which attack floods a network with traffic to make services unavailable?",
+      "options": {
+        "a": "dos",
+        "b": "spoofing",
+        "c": "phishing",
+        "d": "sniffing"
+      },
+      "correct_answer": "a",
+      "explanation": "denial of service attacks exhaust system resources."
+    },
+    {
+      "id": 210,
+      "domain": "security fundamentals",
+      "question_text": "which attack involves multiple compromised devices performing a dos attack?",
+      "options": {
+        "a": "ddos",
+        "b": "phishing",
+        "c": "spoofing",
+        "d": "sniffing"
+      },
+      "correct_answer": "a",
+      "explanation": "distributed denial of service attacks involve multiple systems."
+    },
+
+    {
+      "id": 211,
+      "domain": "security fundamentals",
+      "question_text": "which switch feature restricts the number of mac addresses on a port?",
+      "options": {
+        "a": "port security",
+        "b": "trunking",
+        "c": "vtp",
+        "d": "stp"
+      },
+      "correct_answer": "a",
+      "explanation": "port security limits allowed mac addresses."
+    },
+
+    {
+      "id": 212,
+      "domain": "security fundamentals",
+      "question_text": "which tool captures packets for network analysis?",
+      "options": {
+        "a": "wireshark",
+        "b": "telnet",
+        "c": "ftp",
+        "d": "dns"
+      },
+      "correct_answer": "a",
+      "explanation": "wireshark captures and analyzes packets."
+    },
+
+    {
+      "id": 213,
+      "domain": "security fundamentals",
+      "question_text": "which attack captures network packets to analyze sensitive information?",
+      "options": {
+        "a": "sniffing",
+        "b": "spoofing",
+        "c": "dos",
+        "d": "phishing"
+      },
+      "correct_answer": "a",
+      "explanation": "packet sniffing captures traffic for analysis."
+    },
+
+    {
+      "id": 214,
+      "domain": "security fundamentals",
+      "question_text": "which security technology isolates network segments for better protection?",
+      "options": {
+        "a": "vlan",
+        "b": "nat",
+        "c": "rip",
+        "d": "arp"
+      },
+      "correct_answer": "a",
+      "explanation": "vlans segment networks and improve security."
+    },
+
+    {
+      "id": 215,
+      "domain": "security fundamentals",
+      "question_text": "which protocol is used for secure file transfer over ssh?",
+      "options": {
+        "a": "sftp",
+        "b": "ftp",
+        "c": "tftp",
+        "d": "smtp"
+      },
+      "correct_answer": "a",
+      "explanation": "sftp transfers files securely using ssh."
+    },
+
+    {
+      "id": 216,
+      "domain": "security fundamentals",
+      "question_text": "which technology protects wireless networks using encryption and authentication?",
+      "options": {
+        "a": "wpa2",
+        "b": "rip",
+        "c": "vtp",
+        "d": "stp"
+      },
+      "correct_answer": "a",
+      "explanation": "wpa2 secures wireless networks with encryption."
+    },
+
+    {
+      "id": 217,
+      "domain": "security fundamentals",
+      "question_text": "which security measure requires multiple authentication factors?",
+      "options": {
+        "a": "multi factor authentication",
+        "b": "single sign on",
+        "c": "open authentication",
+        "d": "guest access"
+      },
+      "correct_answer": "a",
+      "explanation": "multi factor authentication requires two or more authentication methods."
+    },
+
+    {
+      "id": 218,
+      "domain": "security fundamentals",
+      "question_text": "which security policy requires regular password changes and complexity?",
+      "options": {
+        "a": "password policy",
+        "b": "routing policy",
+        "c": "nat policy",
+        "d": "vlan policy"
+      },
+      "correct_answer": "a",
+      "explanation": "password policies enforce strong authentication practices."
+    }
   ]
 }

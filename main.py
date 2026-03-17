@@ -64,28 +64,30 @@ def run_quiz_engine(mode, domain_name=None):
         domain_scores_counter[domain] = 0
         domain_totals[domain] = 0
 
-    # load JSON question bank from local data storage
-    try:
-        with open('questions.json', 'r') as questions_file:
-            questions_data = json.load(questions_file)
-            all_questions = questions_data['questions']
-    except FileNotFoundError:
-        print("error: questions.json not found.")
-        return
+    # load JSON question bank from local data storage safely
+    default_questions = {'questions': []}
 
     # filter questions based on mode using standard for loops
-    questions_pool = []
+    questions_pool = []  # fallback structure to ensure the program doesn't crash if the file is missing
+    questions_data = safe_load_json('questions.json', default_questions)
+    all_questions = questions_data.get('questions', [])
+    # Check if we actually have questions to proceed; if not, return to menu
+    if not all_questions:
+        print("\nError: No questions available to load. Please check questions.json.")
+        return
+
+    # Filter questions based on mode
     if mode == "domain":
         # generate fixed set of questions from a selected ccna domain
         for questions in all_questions:
             if questions['domain'].lower() == domain_name.lower():
                 questions_pool.append(questions)
-        limit = domain_quiz_limit  # set to 20
+        limit = domain_quiz_limit  # default set to 20
     else:
         # generate mixed exam randomly selected across all ccna domains
         for questions in all_questions:
             questions_pool.append(questions)
-        limit = practice_exam_limit  # set to 50
+        limit = practice_exam_limit  # default set to 50
 
     # shuffling questions present in pool and selecting number needed
     random.shuffle(questions_pool)
@@ -289,8 +291,8 @@ def load_settings():
 
     # Define defaults in case the settings file is missing or broken
     defaults = {
-        "practice_exam_limit": 50,
-        "domain_quiz_limit": 20
+        "practice_exam_limit": practice_exam_limit,
+        "domain_quiz_limit": domain_quiz_limit
     }
 
     data = safe_load_json(SETTINGS_FILE, defaults)

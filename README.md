@@ -84,7 +84,7 @@ ccna-cli-practice-tool/
 ├── questions.json     # Local CCNA question repository
 ├── settings.json      # User-configurable settings (auto-generated)
 ├── README.md           # Project documentation
-└── (planned) results.db # SQLite database for performance tracking
+└── (planned) ccna_history.db # SQLite database for performance tracking
 ```
 
 ---

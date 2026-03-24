@@ -65,10 +65,7 @@ def run_quiz_engine(mode, domain_name=None):
         domain_totals[domain] = 0
 
     # load JSON question bank from local data storage safely
-    default_questions = {'questions': []}
-
-    # filter questions based on mode using standard for loops
-    questions_pool = []  # fallback structure to ensure the program doesn't crash if the file is missing
+    default_questions = {'questions': []} # fallback structure to ensure the program doesn't crash if the file is missing
     questions_data = safe_load_json('questions.json', default_questions)
     all_questions = questions_data.get('questions', [])
     # Check if we actually have questions to proceed; if not, return to menu
@@ -77,6 +74,7 @@ def run_quiz_engine(mode, domain_name=None):
         return
 
     # Filter questions based on mode
+    questions_pool = []
     if mode == "domain":
         # generate fixed set of questions from a selected ccna domain
         for questions in all_questions:
@@ -98,7 +96,7 @@ def run_quiz_engine(mode, domain_name=None):
         domain_totals[domain_key] += 1
 
         # Numbered question
-        print(f"\nQuestion {num} - Domain: {question['domain']}")
+        print(f"\nQuestion {num} - Domain: {domain_key}")
         print(question['question_text'])
 
         # display multiple-choice answers (a–d)

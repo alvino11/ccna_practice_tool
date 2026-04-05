@@ -2,7 +2,8 @@ from InquirerPy  import inquirer
 import random
 import json
 import os
-
+import sqlite3
+from datetime import datetime
 # Variables for the program
 
 # Integer Variables
@@ -80,16 +81,38 @@ def run_quiz_engine(mode, domain_name=None):
         for questions in all_questions:
             if questions['domain'].lower() == domain_name.lower():
                 questions_pool.append(questions)
-        limit = domain_quiz_limit  # default set to 20
+        limit = domain_quiz_limit
+        random.shuffle(questions_pool)
+        session_pool = questions_pool[:limit]
     else:
         # generate mixed exam randomly selected across all ccna domains
-        for questions in all_questions:
-            questions_pool.append(questions)
-        limit = practice_exam_limit  # default set to 50
+        limit = practice_exam_limit
+        session_pool = []
 
-    # shuffling questions present in pool and selecting number needed
-    random.shuffle(questions_pool)
-    session_pool = questions_pool[:limit]
+        # Group all questions by domain
+        domain_buckets = {d.lower(): [] for d in domains if d != "Back"}
+        for q in all_questions:
+            d_name = q['domain'].lower()
+            if d_name in domain_buckets:
+                domain_buckets[d_name].append(q)
+
+        # Pick one random question from every bucket to guarantee coverage
+        leftover_questions = []
+        for d_name in domain_buckets:
+            if domain_buckets[d_name]:
+                random.shuffle(domain_buckets[d_name])
+                # Add the first one to our guaranteed list
+                session_pool.append(domain_buckets[d_name].pop(0))
+                # Put the rest in a "leftover" pile for later
+                leftover_questions.extend(domain_buckets[d_name])
+
+        # Fill the remaining spots from the leftover pile
+        random.shuffle(leftover_questions)
+        needed = limit - len(session_pool)
+        session_pool.extend(leftover_questions[:needed])
+
+        # Final shuffle so the guaranteed ones aren't always at the start
+        random.shuffle(session_pool)
 
     for num, question in enumerate(session_pool, start=1):
         domain_key = question['domain'].lower()
@@ -126,6 +149,8 @@ def run_quiz_engine(mode, domain_name=None):
     # immediate feedback summary logic
     display_summary(limit, domain_scores_counter, domain_totals)
 
+    # Trigger the database save using the session's active data
+    save_results_to_database(mode, current_score, limit, domain_scores_counter, domain_totals)
 
 def display_summary(limit, domain_scores_counter, domain_totals):
     # Calculate overall percentage of quiz
@@ -166,54 +191,82 @@ def display_summary(limit, domain_scores_counter, domain_totals):
                 performance_rank = "Moderate"
             else:
                 performance_rank = "Weak"
-
             # Formatting the output for a clean CLI look
             # ensures the domain names align vertically
             print(f"- {domain_name.ljust(30)}: {domain_pct:.1f}% ({performance_rank})")
+        else:
+            print(f"- {domain_name.ljust(30)}: Not Tested")
 
     print("=" * 50)
     print("Press ENTER to return to the Main Menu...")
     input()  # Pauses so the user can review results
 
 
-def save_results_to_database(overall_score, total_questions, domain_scores_dict):
-    pass
-    global current_score, domain_totals, domain_scores_counter
-#     Establish Connection
-    with sqlite3.connect("ccna_history.db") as conn:
-#     OPEN a connection to the local file "ccna_history.db"
-#     CREATE a "cursor" object to execute commands
-        cur = conn.cursor()
-#     # Make sure Table Exists
-#     IF the table "quiz_attempts" does not exist:
-#         CREATE TABLE "quiz_attempts" with these columns:
-#             - id: (Unique ID, auto-incrementing)
-#             - date_time: (current date)
-#             - total_score
-#             - total_question
-#             - percentage
-#             - network_fundamentals_pct
-#             - network_access_pct
-#             - ip_connectivity_pct
-#             - ip_services_pct
-#             - security_fundamentals_pct
-#             - automation_programmability_pct
+# 1. Update the function signature to include the totals dictionary
+def save_results_to_database(exam_mode, overall_score, total_questions, domain_scores_dict, domain_totals_dict):
+    """Archives results including the exam mode (Full or Domain)."""
+    overall_percentage = (overall_score / total_questions) * 100 if total_questions > 0 else 0
+    date_stamp = datetime.now().strftime("%Y-%m-%d %H:%M")
 
-#     # Prepare the Data
-#     CALCULATE the overall percentage (score / total * 100)
-#     GET the current date
+    ccna_sections = [d.lower() for d in domains if d != "Back"]
 
-#     FOR each domain in the official CCNA list:
-#         CALCULATE that specific domain's percentage from domain_scores_dict
-#         IF the domain wasn't in the quiz, set its value to NULL or 0
+    domain_pcts = {}
+    for section in ccna_sections:
+        asked = domain_totals_dict.get(section, 0)
+        correct = domain_scores_dict.get(section, 0)
+        if asked > 0:
+            percentage = (correct / asked) * 100
+        else:
+            percentage = None
 
-#     # Execute the Insertion
-#     INSERT a new row into "quiz_attempts" using the calculated values
+        domain_pcts[section] = percentage
 
-#     # Finalize
-#     COMMIT the changes (save them to the disk)
-#     CLOSE the database connection
-#     PRINT "Results saved to performance history."
+    try:
+        with sqlite3.connect("ccna_history.db") as conn:
+            cur = conn.cursor()
+
+            # Added 'exam_mode TEXT' to the table creation
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS quiz_attempts (
+                                                             id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                                             date_time TEXT,
+                                                             exam_mode TEXT,
+                                                             total_score INTEGER,
+                                                             total_questions INTEGER,
+                                                             overall_percentage REAL,
+                                                             network_fundamentals REAL,
+                                                             network_access REAL,
+                                                             ip_connectivity REAL,
+                                                             ip_services REAL,
+                                                             security_fundamentals REAL,
+                                                             automation_programmability REAL
+                )
+            """)
+
+
+            sql_query = '''INSERT INTO quiz_attempts (
+                date_time, exam_mode, total_score, total_questions, overall_percentage,
+                network_fundamentals, network_access, ip_connectivity, 
+                ip_services, security_fundamentals, automation_programmability
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'''
+
+            data_values = (
+                date_stamp, exam_mode, overall_score, total_questions, overall_percentage,
+                domain_pcts.get("network fundamentals"),
+                domain_pcts.get("network access"),
+                domain_pcts.get("ip connectivity"),
+                domain_pcts.get("ip services"),
+                domain_pcts.get("security fundamentals"),
+                domain_pcts.get("automation and programmability")
+            )
+
+            cur.execute(sql_query, data_values)
+            conn.commit()
+            print(f"\n[Database] {exam_mode} results archived successfully.")
+
+    except sqlite3.Error as e:
+        print(f"\n[Database Error] Could not save results: {e}")
+
 
 def display_history():
     pass

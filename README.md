@@ -148,7 +148,7 @@ The application includes a centralized validation layer to ensure a crash-free e
 
 ### 🔜 Short-Term
 
-* [ ] Implement SQLite3 result storage (`save_results_to_database`)
+- [x] Implement SQLite3 result storage (`save_results_to_database`)
 * [ ] Add performance history viewer using `pandas`
 * [ ] Add database cleanup/reset option in Settings
 

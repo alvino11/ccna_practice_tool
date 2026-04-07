@@ -202,10 +202,15 @@ def display_summary(limit, domain_scores_counter, domain_totals):
     input()  # Pauses so the user can review results
 
 
-# 1. Update the function signature to include the totals dictionary
 def save_results_to_database(exam_mode, overall_score, total_questions, domain_scores_dict, domain_totals_dict):
-    """Archives results including the exam mode (Full or Domain)."""
-    overall_percentage = (overall_score / total_questions) * 100 if total_questions > 0 else 0
+
+    # Guard against division by zero if an empty session is somehow triggered
+    if total_questions > 0:
+        overall_percentage = (overall_score / total_questions) * 100
+    else:
+        overall_percentage = 0
+
+    # Create a human-readable timestamp for history tracking
     date_stamp = datetime.now().strftime("%Y-%m-%d %H:%M")
 
     ccna_sections = [d.lower() for d in domains if d != "Back"]
@@ -214,6 +219,8 @@ def save_results_to_database(exam_mode, overall_score, total_questions, domain_s
     for section in ccna_sections:
         asked = domain_totals_dict.get(section, 0)
         correct = domain_scores_dict.get(section, 0)
+
+        # This prevents untested domains from showing as 0% (failing) in history.
         if asked > 0:
             percentage = (correct / asked) * 100
         else:
@@ -222,10 +229,11 @@ def save_results_to_database(exam_mode, overall_score, total_questions, domain_s
         domain_pcts[section] = percentage
 
     try:
+        # Automatically creates the .db file in the local directory if it doesn't exist
         with sqlite3.connect("ccna_history.db") as conn:
             cur = conn.cursor()
 
-            # Added 'exam_mode TEXT' to the table creation
+            # Define the schema: Includes metadata and the 6 official CCNA domains
             cur.execute("""
                 CREATE TABLE IF NOT EXISTS quiz_attempts (
                                                              id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -243,13 +251,14 @@ def save_results_to_database(exam_mode, overall_score, total_questions, domain_s
                 )
             """)
 
-
+            # Use a parameterized query to avoid SQL injection and store None as NULL in the database.
             sql_query = '''INSERT INTO quiz_attempts (
                 date_time, exam_mode, total_score, total_questions, overall_percentage,
                 network_fundamentals, network_access, ip_connectivity, 
                 ip_services, security_fundamentals, automation_programmability
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'''
 
+            # Retrieve values using sanitized keys (lowercased with spaces)
             data_values = (
                 date_stamp, exam_mode, overall_score, total_questions, overall_percentage,
                 domain_pcts.get("network fundamentals"),
@@ -264,6 +273,7 @@ def save_results_to_database(exam_mode, overall_score, total_questions, domain_s
             conn.commit()
             print(f"\n[Database] {exam_mode} results archived successfully.")
 
+    # Gracefully handle file locks or permission issues without crashing the engine
     except sqlite3.Error as e:
         print(f"\n[Database Error] Could not save results: {e}")
 
@@ -323,7 +333,25 @@ def display_settings():
             print(f"Number of questions set to {domain_quiz_limit}")
 
         elif choice == "Clear Performance History":
-            pass # This will include code to delete table from database
+            # Double-check with the user before wiping data
+            confirm = inquirer.confirm(
+                message="Are you sure? This will permanently delete all quiz records.",
+                default=False
+            ).execute()
+
+            if confirm:
+                try:
+                    with sqlite3.connect("ccna_history.db") as conn:
+                        cur = conn.cursor()
+                        # Delete the entire table structure
+                        cur.execute("DROP TABLE IF EXISTS quiz_attempts")
+                        conn.commit()
+                        print("\n[Database] Performance history has been cleared.")
+                except sqlite3.Error as e:
+                    print(f"\n[Database Error] Could not clear history: {e}")
+            else:
+                print("\nAction cancelled. History preserved.")
+
         elif choice == "Back to Main Menu":
             return
 

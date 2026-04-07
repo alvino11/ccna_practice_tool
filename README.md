@@ -150,7 +150,7 @@ The application includes a centralized validation layer to ensure a crash-free e
 
 - [x] Implement SQLite3 result storage (`save_results_to_database`)
 * [ ] Add performance history viewer using `pandas`
-* [ ] Add database cleanup/reset option in Settings
+* [x] Add database cleanup/reset option in Settings
 
 ### 🧠 Planned Enhancements
 
@@ -168,6 +168,10 @@ The application includes a centralized validation layer to ensure a crash-free e
 * Help learners identify weak domains early
 * Encourage structured and measurable exam preparation
 * Serve as a foundation for advanced networking learning tools
+
+## 🗄️ Databases
+SQLite was selected because it suits a local, single user desktop application. It requires no installation and stores all data in a single file, making the project easy to move or share. It integrates directly with Python through the built-in sqlite3 library and handles values like None as NULL without extra work. For this use case, it is fast and reliable since it avoids network overhead and protects data with ACID compliance. It also supports future data analysis since tools like Pandas can read SQLite data directly.
+
 
 ---
 

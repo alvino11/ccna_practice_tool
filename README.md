@@ -21,6 +21,7 @@ The CCNA CLI Practice Tool is a Python-based interactive quiz system that allows
 
   * **Topic-Based Mode**: Practice questions filtered by CCNA exam domains.
   * **Full Practice Mode**: A mixed-domain mock exam for realistic exam simulation.
+* **Incorrect Answer Review Mode**: After the quiz, review every missed question with its correct answer and detailed explanation.
 * **Robust Input Validation**: Ensures only valid multiple-choice answers (A–D) are accepted.
 
 ---
@@ -45,7 +46,7 @@ The CCNA CLI Practice Tool is a Python-based interactive quiz system that allows
   Remembers user-defined question limits across sessions.
 * **Offline Question Bank (`questions.json`)**
   Fully offline operation with no internet dependency.
-* **Planned SQLite3 Database** for long-term performance tracking.
+* **SQLite3 Performance History**: Automatically archives results to ccna_history.db, recording "Not Tested" for domains not encountered in a session.
 
 ---
 
@@ -148,7 +149,9 @@ The application includes a centralized validation layer to ensure a crash-free e
 
 ### 🔜 Short-Term
 
-- [x] Implement SQLite3 result storage (`save_results_to_database`)
+* [x] Implement SQLite3 result storage (`save_results_to_database`)
+* [x] Add Incorrect Answer Review Mode
+* [x] Implement "Guaranteed Coverage" for Full Exam mode
 * [ ] Add performance history viewer using `pandas`
 * [x] Add database cleanup/reset option in Settings
 

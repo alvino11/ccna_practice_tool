@@ -52,7 +52,7 @@ def topic_exam():
 def run_quiz_engine(mode, domain_name=None):
     # global variable access for session scoring
     global current_score, domain_scores_counter
-
+    incorrect_questions = []  # Tracks missed questions for the end-of-session review
     # initialize counters for domain-level performance tracking
     domain_list = []
     for domain in domains:
@@ -139,18 +139,60 @@ def run_quiz_engine(mode, domain_name=None):
         if ans == question['correct_answer']:
             current_score += 1
             domain_scores_counter[domain_key] += 1
-            print("correct!")
+            print("  ✔ Correct!")
         else:
-            print(f"incorrect. the correct answer was {question['correct_answer']}.")
-            # optional explanation for review & feedback
+            print(f"  ✘ Incorrect. The correct answer was {question['correct_answer']}.")
+            # Log the question for the review session
+            incorrect_questions.append({
+                "question": question["question_text"],
+                "your_answer": ans,
+                "correct_answer": question["correct_answer"],
+                "explanation": question.get("explanation", "")
+            })
             if 'explanation' in question:
-                print(f"explanation: {question['explanation']}")
+                print(f"Explanation: {question['explanation']}")
 
     # immediate feedback summary logic
     display_summary(limit, domain_scores_counter, domain_totals)
 
     # Trigger the database save using the session's active data
     save_results_to_database(mode, current_score, limit, domain_scores_counter, domain_totals)
+
+    # Review questions that was answered incorrectly
+    offer_incorrect_review(incorrect_questions)
+
+def offer_incorrect_review(incorrect_questions):
+    #Asks the user if they want to review the questions they missed.
+    if not incorrect_questions:
+        print("\nPerfect score – nothing to review!")
+        input("\nPress ENTER to return to the Main Menu...")
+        return
+
+    review = inquirer.confirm(
+        message=f"You missed {len(incorrect_questions)} question(s). Would you like to review them?",
+        default=True
+    ).execute()
+
+    if review:
+        display_incorrect_review(incorrect_questions)
+    else:
+        input("\nPress ENTER to return to the Main Menu...")
+
+def display_incorrect_review(incorrect_questions):
+    # Displays every missed question with the correct answer and explanation.
+    print("\n" + "=" * 50)
+    print("          INCORRECT ANSWER REVIEW          ")
+    print("=" * 50)
+
+    for idx, item in enumerate(incorrect_questions, start=1):
+        print(f"\n{idx}. {item['question']}")
+        print(f"   Your answer    : {item['your_answer']}")
+        print(f"   Correct answer : {item['correct_answer']}")
+        if item["explanation"]:
+            print(f"   Explanation    : {item['explanation']}")
+
+    input("\nReview complete. Press ENTER to return to the Main Menu...")
+
 
 def display_summary(limit, domain_scores_counter, domain_totals):
     # Calculate overall percentage of quiz

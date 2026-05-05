@@ -4,6 +4,7 @@ import json
 import os
 import sqlite3
 from datetime import datetime
+import pandas as pd
 # Variables for the program
 
 # Integer Variables
@@ -90,7 +91,11 @@ def run_quiz_engine(mode, domain_name=None):
         session_pool = []
 
         # Group all questions by domain
-        domain_buckets = {d.lower(): [] for d in domains if d != "Back"}
+        domain_buckets = {}
+        for d in domains:
+            if d != "Back":
+                domain_buckets[d.lower()] = []
+
         for q in all_questions:
             d_name = q['domain'].lower()
             if d_name in domain_buckets:
@@ -191,7 +196,7 @@ def display_incorrect_review(incorrect_questions):
         if item["explanation"]:
             print(f"   Explanation    : {item['explanation']}")
 
-    input("\nReview complete. Press ENTER to return to the Main Menu...")
+    input("\nReview complete. Press ENTER to Main Menu...")
 
 
 def display_summary(limit, domain_scores_counter, domain_totals):
@@ -240,7 +245,7 @@ def display_summary(limit, domain_scores_counter, domain_totals):
             print(f"- {domain_name.ljust(30)}: Not Tested")
 
     print("=" * 50)
-    print("Press ENTER to return to the Main Menu...")
+    print("Press ENTER to the Continue...")
     input()  # Pauses so the user can review results
 
 
@@ -321,7 +326,56 @@ def save_results_to_database(exam_mode, overall_score, total_questions, domain_s
 
 
 def display_history():
-    pass
+    # Fetches quiz history from SQLite and displays it using Pandas.
+    try:
+        with sqlite3.connect("ccna_history.db") as conn:
+            # Load the database table into a DataFrame
+            df = pd.read_sql_query("SELECT * FROM quiz_attempts ORDER BY id DESC", conn)
+
+        if df.empty:
+            print("\nNo history found. Complete a quiz to start tracking!")
+            input("\nPress ENTER to return...")
+            return
+
+        print("\n" + "=" * 85)
+        print("                          PERFORMANCE HISTORY")
+        print("=" * 85)
+
+        # Format the main table for the CLI
+        view_df = df[['id', 'date_time', 'exam_mode', 'total_score', 'total_questions', 'overall_percentage']].copy()
+        view_df.columns = ['#', 'Date/Time', 'Mode', 'Score', 'Total', 'Overall %']
+        view_df['Overall %'] = view_df['Overall %'].map("{:.1f}%".format)
+
+        print(view_df.to_string(index=False))
+
+        # Calculate Mean, while skipping NULL (Not Tested) values automatically
+        print("\n" + "-" * 85)
+        print("Domain Averages (across all sessions):")
+
+        domain_cols = {
+            'network_fundamentals': 'Network Fundamentals',
+            'network_access': 'Network Access',
+            'ip_connectivity': 'IP Connectivity',
+            'ip_services': 'IP Services',
+            'security_fundamentals': 'Security Fundamentals',
+            'automation_programmability': 'Automation & Programmability'
+        }
+
+        for col, label in domain_cols.items():
+            if col in df.columns:
+                avg = df[col].mean()
+                if pd.isna(avg):
+                    print(f"  {label.ljust(35)}: No Data")
+                else:
+                    rank = "Strong" if avg >= 80 else "Moderate" if avg >= 60 else "Weak"
+                    print(f"  {label.ljust(35)}: {avg:5.1f}% ({rank})")
+
+        print("=" * 85)
+        input("\nPress ENTER to return to the Main Menu...")
+
+    except Exception as e:
+        print(f"\n[Error] Could not load history: {e}")
+        input("\nPress ENTER to return...")
 # This function will aid us in viewing Performance History
 # Load ccna_history.db using Pandas Library
 # Display performance history using Pandas Library
@@ -373,7 +427,6 @@ def display_settings():
             domain_quiz_limit = get_validated_input(msg)
             save_settings()
             print(f"Number of questions set to {domain_quiz_limit}")
-
         elif choice == "Clear Performance History":
             # Double-check with the user before wiping data
             confirm = inquirer.confirm(
@@ -445,7 +498,7 @@ def main_menu():
         elif choice == f"Full Practice Exam Mode ({practice_exam_limit} questions)":
             run_quiz_engine("full")  # starts 50-question mixed exam
         elif choice == "View Performance History":
-            pass
+            display_history()
         elif choice == "Settings":
             display_settings()
         elif choice == "Exit":

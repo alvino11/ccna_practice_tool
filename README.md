@@ -152,7 +152,7 @@ The application includes a centralized validation layer to ensure a crash-free e
 * [x] Implement SQLite3 result storage (`save_results_to_database`)
 * [x] Add Incorrect Answer Review Mode
 * [x] Implement "Guaranteed Coverage" for Full Exam mode
-* [ ] Add performance history viewer using `pandas`
+* [x] Add performance history viewer using `pandas`
 * [x] Add database cleanup/reset option in Settings
 
 ### 🧠 Planned Enhancements

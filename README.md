@@ -70,9 +70,9 @@ The CCNA CLI Practice Tool is a Python-based interactive quiz system that allows
   * `json`
   * `random`
   * `os`
-  * *(Planned)* `sqlite3`, `pandas`
+  * `sqlite3` and `pandas`
 * **Data Formats**: JSON (questions and settings)
-* **Planned Storage**: SQLite database for historical results
+* **Storage**: SQLite database for historical results
 
 ---
 
@@ -85,7 +85,7 @@ ccna-cli-practice-tool/
 ├── questions.json     # Local CCNA question repository
 ├── settings.json      # User-configurable settings (auto-generated)
 ├── README.md           # Project documentation
-└── (planned) ccna_history.db # SQLite database for performance tracking
+└── ccna_history.db # SQLite database for performance tracking
 ```
 
 ---
